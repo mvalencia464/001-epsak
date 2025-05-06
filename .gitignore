@@ -8,7 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
+# dist - commented out to include the dist directory
 dist-ssr
 *.local
 
@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Zip files
+*.zip
