@@ -155,7 +155,10 @@
       </div>
 
       <!-- Mobile menu -->
-      <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg">
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-white shadow-lg fixed top-0 left-0 right-0 z-50 mt-16 max-h-[calc(100vh-4rem)] overflow-y-auto"
+      >
         <nav class="container mx-auto px-4 py-4">
           <ul class="space-y-4">
             <li>
@@ -247,6 +250,12 @@
       // Mobile menu toggle
       function toggleMobileMenu() {
         const mobileMenu = document.getElementById("mobileMenu");
+        const header = document.getElementById("header");
+
+        // Adjust mobile menu position based on header height
+        const headerHeight = header.offsetHeight;
+        mobileMenu.style.marginTop = headerHeight + "px";
+
         mobileMenu.classList.toggle("hidden");
       }
 
