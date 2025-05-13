@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Team - Essential Property Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#4B0082",
+              accent: "#FFD700",
+            },
+            fontFamily: {
+              sans: ['"Inter"', "system-ui", "-apple-system", "sans-serif"],
+              serif: ['"Merriweather"', "Georgia", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fadeIn {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+
+      .hover-grow {
+        transition: transform 0.2s ease;
+      }
+      .hover-grow:hover {
+        transform: scale(1.02);
+      }
+    </style>
+    <script>
+      !(function (Gleap, t, i) {
+        if (!(Gleap = window.Gleap = window.Gleap || []).invoked) {
+          for (
+            window.GleapActions = [],
+              Gleap.invoked = !0,
+              Gleap.methods = [
+                "identify",
+                "setEnvironment",
+                "setTags",
+                "attachCustomData",
+                "setCustomData",
+                "removeCustomData",
+                "clearCustomData",
+                "registerCustomAction",
+                "trackEvent",
+                "setUseCookies",
+                "log",
+                "preFillForm",
+                "showSurvey",
+                "sendSilentCrashReport",
+                "startFeedbackFlow",
+                "startBot",
+                "setAppBuildNumber",
+                "setAppVersionCode",
+                "setApiUrl",
+                "setFrameUrl",
+                "isOpened",
+                "open",
+                "close",
+                "on",
+                "setLanguage",
+                "setOfflineMode",
+                "startClassicForm",
+                "initialize",
+                "disableConsoleLogOverwrite",
+                "logEvent",
+                "hide",
+                "enableShortcuts",
+                "showFeedbackButton",
+                "destroy",
+                "getIdentity",
+                "isUserIdentified",
+                "clearIdentity",
+                "openConversations",
+                "openConversation",
+                "openHelpCenterCollection",
+                "openHelpCenterArticle",
+                "openHelpCenter",
+                "searchHelpCenter",
+                "openNewsArticle",
+                "openChecklists",
+                "startChecklist",
+                "openNews",
+                "openFeatureRequests",
+                "isLiveMode",
+              ],
+              Gleap.f = function (e) {
+                return function () {
+                  var t = Array.prototype.slice.call(arguments);
+                  window.GleapActions.push({ e: e, a: t });
+                };
+              },
+              t = 0;
+            t < Gleap.methods.length;
+            t++
+          )
+            Gleap[(i = Gleap.methods[t])] = Gleap.f(i);
+          (Gleap.load = function () {
+            var t = document.getElementsByTagName("head")[0],
+              i = document.createElement("script");
+            (i.type = "text/javascript"),
+              (i.async = !0),
+              (i.src = "https://sdk.gleap.io/latest/index.js"),
+              t.appendChild(i);
+          }),
+            Gleap.load(),
+            Gleap.initialize("AWgSKIC1b9ZgFMyt29I0VWOUUYxQSfJo");
+        }
+      })();
+    </script>
+  </head>
+  <body class="font-sans text-gray-800">
+    <!-- Header -->
+    <header
+      id="header"
+      class="fixed w-full z-50 transition-all duration-300 py-4"
+    >
+      <div class="container mx-auto px-4 md:px-6">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <a href="index.html">
+              <img
+                src="https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/681439e6dde4a49484f17fe1.webp"
+                alt="Essential Property Services Logo"
+                class="h-12 md:h-16"
+              />
+            </a>
+          </div>
+
+          <div class="hidden md:flex items-center space-x-8">
+            <nav>
+              <ul class="flex space-x-6">
+                <li>
+                  <a
+                    href="services.html"
+                    class="nav-link font-medium hover:text-primary transition text-white"
+                    >Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="portfolio.html"
+                    class="nav-link font-medium hover:text-primary transition text-white"
+                    >Portfolio</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="team.html"
+                    class="nav-link font-medium hover:text-primary transition text-white"
+                    >Our Team</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="index.html#contact"
+                    class="nav-link font-medium hover:text-primary transition text-white"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </nav>
+
+            <a
+              href="tel:9076009900"
+              class="flex items-center bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md font-medium transition"
+            >
+              <svg
+                class="w-[18px] h-[18px] mr-2"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+              (907) 600-9900
+            </a>
+          </div>
+
+          <button class="md:hidden text-primary" onclick="toggleMobileMenu()">
+            <svg
+              class="w-7 h-7"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg">
+        <nav class="container mx-auto px-4 py-4">
+          <ul class="space-y-4">
+            <li>
+              <a
+                href="services.html"
+                class="block py-2 text-gray-800 font-medium hover:text-primary"
+                onclick="closeMobileMenu()"
+              >
+                Services
+              </a>
+            </li>
+            <li>
+              <a
+                href="portfolio.html"
+                class="block py-2 text-gray-800 font-medium hover:text-primary"
+                onclick="closeMobileMenu()"
+              >
+                Portfolio
+              </a>
+            </li>
+            <li>
+              <a
+                href="team.html"
+                class="block py-2 text-gray-800 font-medium hover:text-primary"
+                onclick="closeMobileMenu()"
+              >
+                Our Team
+              </a>
+            </li>
+            <li>
+              <a
+                href="index.html#contact"
+                class="block py-2 text-gray-800 font-medium hover:text-primary"
+                onclick="closeMobileMenu()"
+              >
+                Contact
+              </a>
+            </li>
+            <li>
+              <a
+                href="tel:9076009900"
+                class="flex items-center w-full bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-md font-medium justify-center transition"
+                onclick="closeMobileMenu()"
+              >
+                <svg
+                  class="w-[18px] h-[18px] mr-2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+                (907) 600-9900
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-[60vh] flex items-center">
+      <div class="absolute inset-0">
+        <img
+          src="https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/681a37336cac3426a6a6f1cd.webp"
+          alt="Our Team"
+          class="w-full h-full object-cover md:object-[center_25%] transition-transform duration-500"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-black/70 to-primary/70"
+        ></div>
+      </div>
+
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-4xl mx-auto text-center text-white">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">
+            Meet the Team Behind Your Success
+          </h1>
+          <p class="text-xl opacity-90">
+            A dedicated group of professionals committed to excellence in every
+            project
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center mb-16 text-primary"
+        >
+          Our Core Values
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div
+              class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <svg
+                class="w-10 h-10 text-primary"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Integrity</h3>
+            <p class="text-gray-600">
+              We believe in honest communication and transparent pricing. What
+              we promise is what we deliver.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <svg
+                class="w-10 h-10 text-primary"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Excellence</h3>
+            <p class="text-gray-600">
+              We take pride in delivering exceptional quality in every project,
+              no matter the size.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <svg
+                class="w-10 h-10 text-primary"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Reliability</h3>
+            <p class="text-gray-600">
+              When you need us, we're there. 24/7 availability for our valued
+              clients.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Culture Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-center mb-8 text-primary"
+          >
+            Our Culture
+          </h2>
+          <p class="text-xl text-center text-gray-600 mb-16">
+            At Essential Property Services, we foster a culture of excellence,
+            teamwork, and continuous improvement.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-lg p-8 shadow-lg">
+              <h3 class="text-xl font-bold mb-4 text-primary">
+                Client-First Mindset
+              </h3>
+              <p class="text-gray-600 mb-6">
+                Every decision we make is guided by what's best for our clients.
+                We believe in building lasting relationships through trust and
+                exceptional service.
+              </p>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <svg
+                    class="w-6 h-6 text-accent mr-2 mt-1"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>Personalized attention to every project</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-6 h-6 text-accent mr-2 mt-1"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>Clear communication throughout</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-6 h-6 text-accent mr-2 mt-1"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>Flexible scheduling for client convenience</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-white rounded-lg p-8 shadow-lg">
+              <h3 class="text-xl font-bold mb-4 text-primary">
+                Continuous Growth
+              </h3>
+              <p class="text-gray-600 mb-6">
+                We invest in our team's development, ensuring we stay ahead of
+                industry trends and best practices.
+              </p>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <svg
+                    class="w-6 h-6 text-accent mr-2 mt-1"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>Regular team training sessions</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-6 h-6 text-accent mr-2 mt-1"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>Industry certification support</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-6 h-6 text-accent mr-2 mt-1"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>Mentorship programs</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="py-20 bg-primary text-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+          What Our Clients Say
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white/10 p-8 rounded-lg backdrop-blur-sm">
+            <div class="flex mb-4">
+              <svg
+                class="w-5 h-5 text-accent"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                class="w-5 h-5 text-accent"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                class="w-5 h-5 text-accent"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                class="w-5 h-5 text-accent"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                class="w-5 h-5 text-accent"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+            </div>
+            <p class="mb-4">
+              "The team's attention to detail and commitment to quality is
+              unmatched. They treated our home like their own."
+            </p>
+            <p class="font-semibold">- Sarah M., Anchorage</p>
+          </div>
+
+          <div class="bg-white/10 p-8 rounded-lg backdrop-blur-sm">
+            <div class="flex mb-4">
+              <svg
+                class="w-5 h-5 text-accent"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                class="w-5 h-5 text-accent"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                class="w-5 h-5 text-accent"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                class="w-5 h-5 text-accent"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                class="w-5 h-5 text-accent"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+            </div>
+            <p class="mb-4">
+              "Professional, punctual, and truly caring about their clients.
+              They went above and beyond our expectations."
+            </p>
+            <p class="font-semibold">- Michael K., Eagle River</p>
+          </div>
+
+          <div class="bg-white/10 p-8 rounded-lg backdrop-blur-sm">
+            <div class="flex mb-4">
+              <svg
+                class="w-5 h-5 text-accent"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                class="w-5 h-5 text-accent"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                class="w-5 h-5 text-accent"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                class="w-5 h-5 text-accent"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                class="w-5 h-5 text-accent"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+            </div>
+            <p class="mb-4">
+              "Their emergency response saved our home from serious water
+              damage. Available 24/7 when you need them most."
+            </p>
+            <p class="font-semibold">- Lisa T., Wasilla</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Join Our Team CTA -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">
+            Join Our Team
+          </h2>
+          <p class="text-xl text-gray-600 mb-8">
+            We're always looking for talented individuals who share our values
+            and commitment to excellence.
+          </p>
+          <a
+            href="contact.html"
+            class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-md font-semibold transition"
+          >
+            Contact Us About Opportunities
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+      <div class="container mx-auto px-4 md:px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <img
+              src="https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/681439e6dde4a49484f17fe1.webp"
+              alt="Essential Property Services Logo"
+              class="h-16 mb-4"
+            />
+            <p class="text-gray-300 mb-4">
+              Created to serve with excellence, through humility and
+              professionalism.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-accent hover:text-accent/80 transition">
+                <span class="sr-only">Facebook</span>
+                <svg
+                  class="w-6 h-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="text-accent hover:text-accent/80 transition">
+                <span class="sr-only">Instagram</span>
+                <svg
+                  class="w-6 h-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Contact Information</h3>
+            <ul class="space-y-3">
+              <li class="flex items-center">
+                <svg
+                  class="w-[18px] h-[18px] mr-3 text-accent"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+                <a href="tel:9076009900" class="hover:text-accent transition"
+                  >(907) 600-9900</a
+                >
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-[18px] h-[18px] mr-3 text-accent"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <a
+                  href="mailto:scottcook@epsak.com"
+                  class="hover:text-accent transition"
+                  >scottcook@epsak.com</a
+                >
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-[18px] h-[18px] mr-3 text-accent mt-1"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span>Serving Anchorage, AK & Surrounding Areas</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Licensing & Information</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li>Alaska General Contractor License 217482</li>
+              <li>MOA License CON14200</li>
+              <li>Fully Insured and Bonded</li>
+              <li>Available 24/7/364</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-700 pt-8 mt-8 text-gray-300 text-sm text-center"
+        >
+          <p>
+            ©
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            Essential Property Services LLC. All rights reserved.
+          </p>
+          <p class="mt-2">
+            <a href="#" class="hover:text-accent transition">Privacy Policy</a>
+            {' | '}
+            <a href="#" class="hover:text-accent transition"
+              >Terms of Service</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Header scroll effect
+      window.addEventListener("scroll", () => {
+        const header = document.getElementById("header");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        if (window.scrollY > 20) {
+          header.classList.remove("py-4");
+          header.classList.add("bg-white", "shadow-md", "py-2");
+          navLinks.forEach((link) => {
+            link.classList.remove("text-white");
+            link.classList.add("text-gray-800");
+          });
+        } else {
+          header.classList.add("py-4");
+          header.classList.remove("bg-white", "shadow-md", "py-2");
+          navLinks.forEach((link) => {
+            link.classList.add("text-white");
+            link.classList.remove("text-gray-800");
+          });
+        }
+      });
+
+      // Mobile menu toggle
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("hidden");
+      }
+
+      function closeMobileMenu() {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.add("hidden");
+      }
+    </script>
+  </body>
+</html>
