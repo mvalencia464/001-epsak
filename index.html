@@ -63,6 +63,96 @@
         outline: none;
         box-shadow: 0 0 0 3px rgba(75, 0, 130, 0.2);
       }
+
+      /* Custom styles for HighLevel forms */
+      .form-container iframe,
+      .booking-container iframe {
+        background-color: transparent;
+      }
+
+      /* Add custom styling for HighLevel forms */
+      :root {
+        --hl-primary: #4b0082; /* Your primary purple color */
+        --hl-accent: #ffd700; /* Your accent gold color */
+      }
+
+      /* This will help influence the form styling through iframe */
+      .form-container,
+      .booking-container {
+        position: relative;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0;
+        overflow: visible !important;
+        transition: none !important;
+        transform: none !important;
+      }
+
+      /* Disable any animations or hover effects */
+      .form-container:hover,
+      .booking-container:hover {
+        transform: none !important;
+        box-shadow: none !important;
+      }
+
+      /* Responsive adjustments for forms */
+      @media (max-width: 768px) {
+        .form-container {
+          height: 800px !important; /* Adjusted height for mobile */
+        }
+        .consent-checkbox {
+          font-size: 12px;
+          margin-bottom: 0; /* Reduce bottom margin on mobile */
+        }
+      }
+
+      @media (max-width: 480px) {
+        .form-container {
+          height: 850px !important; /* Adjusted height for small mobile */
+        }
+        .consent-checkbox {
+          font-size: 11px;
+          margin-bottom: 0; /* Reduce bottom margin on small mobile */
+        }
+      }
+
+      /* Style the consent checkbox */
+      .consent-checkbox {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .consent-checkbox input[type="checkbox"] {
+        accent-color: var(--hl-primary);
+        width: 16px;
+        height: 16px;
+      }
+
+      /* Remove any potential padding from parent containers */
+      .form-container > iframe,
+      .booking-container > iframe {
+        display: block;
+        padding: 0;
+        margin: 0;
+      }
+
+      .form-container::after,
+      .booking-container::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(
+          to right,
+          var(--hl-primary),
+          var(--hl-accent)
+        );
+        z-index: 10;
+        pointer-events: none;
+      }
     </style>
     <script>
       !(function (Gleap, t, i) {
@@ -162,7 +252,7 @@
             />
           </div>
 
-          <div class="hidden md:flex items-center space-x-8">
+          <div class="hidden md:flex items-center space-x-4">
             <nav>
               <ul class="flex space-x-6">
                 <li>
@@ -196,12 +286,13 @@
               </ul>
             </nav>
 
+            <!-- Emergency Call Button -->
             <a
               href="tel:9076009900"
-              class="flex items-center bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md font-medium transition"
+              class="flex items-center bg-primary hover:bg-primary/90 text-white px-3 py-2 rounded-md font-bold transition"
             >
               <svg
-                class="w-[18px] h-[18px] mr-2"
+                class="w-[18px] h-[18px] mr-1"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -213,7 +304,29 @@
                   d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
                 />
               </svg>
-              (907) 600-9900
+              Emergency: (907) 600-9900
+            </a>
+
+            <!-- Schedule Service Button -->
+            <a
+              href="#scheduling"
+              class="flex items-center bg-accent hover:bg-accent/90 text-primary px-3 py-2 rounded-md font-bold transition"
+            >
+              <svg
+                class="w-[18px] h-[18px] mr-1"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Schedule Service
             </a>
           </div>
 
@@ -278,10 +391,11 @@
                 Contact
               </a>
             </li>
+            <!-- Emergency Call Button -->
             <li>
               <a
                 href="tel:9076009900"
-                class="flex items-center w-full bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-md font-medium justify-center transition"
+                class="flex items-center w-full bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-md font-bold justify-center transition"
                 onclick="closeMobileMenu()"
               >
                 <svg
@@ -297,7 +411,31 @@
                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
                   />
                 </svg>
-                (907) 600-9900
+                Emergency Call 24/7
+              </a>
+            </li>
+            <!-- Schedule Service Button -->
+            <li>
+              <a
+                href="#scheduling"
+                class="flex items-center w-full bg-accent hover:bg-accent/90 text-primary px-4 py-3 rounded-md font-bold justify-center transition mt-2"
+                onclick="closeMobileMenu()"
+              >
+                <svg
+                  class="w-[18px] h-[18px] mr-2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Schedule Service Online
               </a>
             </li>
           </ul>
@@ -344,6 +482,126 @@
         const mobileMenu = document.getElementById("mobileMenu");
         mobileMenu.classList.add("hidden");
       }
+
+      // Ensure smooth scrolling to scheduling section
+      document.querySelectorAll('a[href="#scheduling"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const schedulingSection = document.getElementById("scheduling");
+          if (schedulingSection) {
+            schedulingSection.scrollIntoView({
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Helper function to style HighLevel forms
+      window.addEventListener("load", function () {
+        // Add message event listener to communicate with iframes
+        window.addEventListener("message", function (event) {
+          // Check if the message is from HighLevel
+          if (
+            event.data &&
+            typeof event.data === "string" &&
+            event.data.includes("highLevel")
+          ) {
+            console.log("Received message from HighLevel form:", event.data);
+
+            // If we receive a form height message, we could adjust container height
+            if (event.data.includes("formHeight")) {
+              try {
+                const data = JSON.parse(event.data);
+                if (data.formHeight) {
+                  // Add moderate padding to ensure submit button is visible
+                  const formHeight = data.formHeight + 100; // Reduced padding to minimize extra space
+                  const formContainer =
+                    document.querySelector(".form-container");
+                  if (formContainer) {
+                    formContainer.style.height = formHeight + "px";
+                  }
+                }
+              } catch (e) {
+                console.log("Error parsing form height data", e);
+              }
+            }
+          }
+        });
+
+        // Add custom styling to form containers
+        const formContainers = document.querySelectorAll(
+          ".form-container, .booking-container"
+        );
+        formContainers.forEach((container) => {
+          // Remove hover effect
+          container.classList.remove("hover-grow");
+          // Remove any potential padding
+          container.style.padding = "0";
+        });
+
+        // Check form visibility periodically and adjust if needed
+        setTimeout(function () {
+          const formIframe = document.getElementById(
+            "inline-wZJleRMUcriSmn86ySdF"
+          );
+          if (formIframe) {
+            // Try to ensure the form is fully visible
+            formIframe.style.minHeight = "750px";
+            formIframe.style.padding = "0";
+            formIframe.style.overflow = "visible";
+
+            // Add extra space for the submit button
+            const formContainer = document.querySelector(".form-container");
+            if (formContainer) {
+              formContainer.style.marginBottom = "0";
+            }
+          }
+        }, 1000);
+
+        // Handle marketing consent checkbox
+        const consentCheckbox = document.getElementById("marketingConsent");
+        if (consentCheckbox) {
+          consentCheckbox.addEventListener("change", function () {
+            // Send message to HighLevel form iframe
+            const formIframe = document.getElementById(
+              "inline-wZJleRMUcriSmn86ySdF"
+            );
+            if (formIframe && formIframe.contentWindow) {
+              try {
+                const message = {
+                  type: "custom",
+                  action: "marketingConsent",
+                  value: consentCheckbox.checked,
+                };
+                formIframe.contentWindow.postMessage(
+                  JSON.stringify(message),
+                  "*"
+                );
+
+                // Store consent in localStorage for persistence
+                localStorage.setItem(
+                  "epsak_marketing_consent",
+                  consentCheckbox.checked ? "true" : "false"
+                );
+
+                console.log(
+                  "Marketing consent updated:",
+                  consentCheckbox.checked
+                );
+              } catch (e) {
+                console.error("Error sending consent to form:", e);
+              }
+            }
+          });
+
+          // Check if consent was previously given
+          const savedConsent = localStorage.getItem("epsak_marketing_consent");
+          if (savedConsent === "true") {
+            consentCheckbox.checked = true;
+          }
+        }
+      });
     </script>
 
     <!-- Hero Section -->
@@ -358,106 +616,83 @@
       </div>
 
       <div class="container mx-auto px-4 relative z-10">
-        <div class="grid md:grid-cols-5 gap-8 items-center">
-          <div class="md:col-span-3 text-white">
-            <h1
-              class="text-4xl md:text-5xl font-bold leading-tight mb-6 animate-fadeIn"
+        <div class="max-w-4xl mx-auto text-center">
+          <h1
+            class="text-4xl md:text-5xl font-bold leading-tight mb-6 animate-fadeIn text-white"
+          >
+            Creating to Serve: Anchorage's Trusted Property Partner
+          </h1>
+          <p class="text-xl mb-10 opacity-90 text-white">
+            Intentionally pursuing our calling through serving you with
+            excellence. A contractor who shows up, communicates clearly, and
+            delivers top-notch work.
+          </p>
+
+          <!-- Three prominent CTA buttons -->
+          <div class="flex flex-col md:flex-row gap-4 justify-center">
+            <!-- Emergency Call Button -->
+            <a
+              href="tel:9076009900"
+              class="px-8 py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-md text-center transition flex items-center justify-center text-lg"
             >
-              Creating to Serve: Anchorage's Trusted Property Partner
-            </h1>
-            <p class="text-xl mb-8 opacity-90">
-              Intentionally pursuing our calling through serving you with
-              excellence. A contractor who shows up, communicates clearly, and
-              delivers top-notch work.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a
-                href="#contact"
-                class="px-8 py-3 bg-accent hover:bg-accent/90 text-primary font-semibold rounded-md text-center transition"
+              <svg
+                class="w-6 h-6 mr-2"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
-                Get Your FREE Estimate Today!
-              </a>
-              <a
-                href="tel:9076009900"
-                class="px-8 py-3 bg-white hover:bg-gray-100 text-primary font-semibold rounded-md text-center transition flex items-center justify-center"
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+              Emergency Call 24/7
+            </a>
+
+            <!-- Schedule Repair or Estimate Button -->
+            <a
+              href="tel:9076009900"
+              class="px-8 py-4 bg-accent hover:bg-accent/90 text-primary font-bold rounded-md text-center transition flex items-center justify-center text-lg"
+            >
+              <svg
+                class="w-6 h-6 mr-2"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
-                <svg
-                  class="w-5 h-5 mr-2"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                  />
-                </svg>
-                Call Now: (907) 600-9900
-              </a>
-            </div>
-          </div>
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+              Call to Schedule Repair or Estimate
+            </a>
 
-          <div class="md:col-span-2">
-            <div class="bg-white rounded-lg shadow-xl p-6 max-w-sm mx-auto">
-              <h3 class="text-2xl font-bold text-gray-800 mb-4">
-                Get Your Free Quote
-              </h3>
-              <form class="space-y-4">
-                <input
-                  type="text"
-                  placeholder="Full Name"
-                  required
-                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                />
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  required
-                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                />
-                <input
-                  type="tel"
-                  placeholder="Phone Number"
-                  required
-                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                />
-                <select
-                  required
-                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                >
-                  <option value="">Select Project Type</option>
-                  <option value="full-remodel">Full Kitchen Remodel</option>
-                  <option value="cabinet-refresh">Cabinet Refresh</option>
-                  <option value="countertops">Countertop Replacement</option>
-                  <option value="appliances">Appliance Upgrade</option>
-                </select>
-                <textarea
-                  placeholder="Tell us about your project"
-                  rows="3"
-                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                ></textarea>
-                <button
-                  type="submit"
-                  class="w-full py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-md transition"
-                >
-                  Request Free Quote
-                </button>
-              </form>
-
-              <div class="mt-4 text-center">
-                <div class="flex items-center justify-center mb-2">
-                  <div class="text-accent">★★★★★</div>
-                  <span class="ml-2 text-gray-700 font-medium"
-                    >5/5 (26 Reviews)</span
-                  >
-                </div>
-                <p class="text-sm text-gray-600 italic">
-                  "Trusted by over 800 homeowners in our community"
-                </p>
-              </div>
-            </div>
+            <!-- Schedule Service Online Button -->
+            <a
+              href="#scheduling"
+              class="px-8 py-4 bg-white hover:bg-gray-100 text-primary font-bold rounded-md text-center transition flex items-center justify-center text-lg"
+            >
+              <svg
+                class="w-6 h-6 mr-2"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Schedule Service Online
+            </a>
           </div>
         </div>
       </div>
@@ -1526,21 +1761,26 @@
               >
                 Schedule Your Service
               </div>
-              <iframe
-                src="https://api.leadconnectorhq.com/widget/booking/NuS5BqNCvLPpRUBBllGn"
-                style="
-                  width: 100%;
-                  border: none;
-                  overflow: hidden;
-                  height: 600px;
-                "
-                scrolling="no"
-                id="NuS5BqNCvLPpRUBBllGn_1747152639241"
-              ></iframe>
-              <script
-                src="https://link.msgsndr.com/js/form_embed.js"
-                type="text/javascript"
-              ></script>
+              <div
+                class="booking-container"
+                style="height: 600px; overflow: hidden"
+              >
+                <iframe
+                  src="https://api.leadconnectorhq.com/widget/booking/NuS5BqNCvLPpRUBBllGn"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                    overflow: hidden;
+                  "
+                  scrolling="no"
+                  id="NuS5BqNCvLPpRUBBllGn_1747152639241"
+                ></iframe>
+                <script
+                  src="https://link.msgsndr.com/js/form_embed.js"
+                  type="text/javascript"
+                ></script>
+              </div>
             </div>
           </div>
         </div>
@@ -1680,63 +1920,57 @@
             </div>
 
             <div
-              class="bg-white rounded-lg shadow-md p-8 border border-gray-200"
+              class="bg-white rounded-lg shadow-md p-4 pt-2 pb-8 border border-gray-200"
             >
-              <h3 class="text-2xl font-bold mb-6 text-primary">
+              <h3 class="text-2xl font-bold mb-2 text-primary">
                 Request Your Free Estimate
               </h3>
-              <form class="space-y-4">
-                <div>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name*"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                    required
-                  />
-                </div>
-                <div>
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone Number*"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                    required
-                  />
-                </div>
-                <div>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email Address*"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                    required
-                  />
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    name="address"
-                    placeholder="Anchorage Address/Area"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                  />
-                </div>
-                <div>
-                  <textarea
-                    name="projectDescription"
-                    placeholder="Project Description*"
-                    rows="4"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                    required
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-md transition"
+              <div
+                class="form-container"
+                style="height: 800px; border-radius: 6px; overflow: visible"
+              >
+                <iframe
+                  src="https://api.leadconnectorhq.com/widget/form/wZJleRMUcriSmn86ySdF"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                    border-radius: 6px;
+                    overflow: visible;
+                  "
+                  id="inline-wZJleRMUcriSmn86ySdF"
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Estimate Form"
+                  data-height="800"
+                  data-layout-iframe-id="inline-wZJleRMUcriSmn86ySdF"
+                  data-form-id="wZJleRMUcriSmn86ySdF"
+                  title="Estimate Form"
                 >
-                  Submit Request
-                </button>
-              </form>
+                </iframe>
+              </div>
+              <div class="consent-checkbox mt-0 mb-0 text-sm text-gray-600">
+                <label class="flex items-start cursor-pointer">
+                  <input
+                    type="checkbox"
+                    class="mt-1 mr-2"
+                    id="marketingConsent"
+                  />
+                  <span
+                    >I agree to receive marketing messaging from Essential
+                    Property Services at the phone number provided above. I
+                    understand I will receive 2 messages a month, data rates may
+                    apply, reply STOP to opt out. This data will be mapped to
+                    HighLevel.</span
+                  >
+                </label>
+              </div>
+              <script src="https://link.msgsndr.com/js/form_embed.js"></script>
             </div>
           </div>
         </div>
