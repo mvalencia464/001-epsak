@@ -154,87 +154,7 @@
         pointer-events: none;
       }
     </style>
-    <script>
-      !(function (Gleap, t, i) {
-        if (!(Gleap = window.Gleap = window.Gleap || []).invoked) {
-          for (
-            window.GleapActions = [],
-              Gleap.invoked = !0,
-              Gleap.methods = [
-                "identify",
-                "setEnvironment",
-                "setTags",
-                "attachCustomData",
-                "setCustomData",
-                "removeCustomData",
-                "clearCustomData",
-                "registerCustomAction",
-                "trackEvent",
-                "setUseCookies",
-                "log",
-                "preFillForm",
-                "showSurvey",
-                "sendSilentCrashReport",
-                "startFeedbackFlow",
-                "startBot",
-                "setAppBuildNumber",
-                "setAppVersionCode",
-                "setApiUrl",
-                "setFrameUrl",
-                "isOpened",
-                "open",
-                "close",
-                "on",
-                "setLanguage",
-                "setOfflineMode",
-                "startClassicForm",
-                "initialize",
-                "disableConsoleLogOverwrite",
-                "logEvent",
-                "hide",
-                "enableShortcuts",
-                "showFeedbackButton",
-                "destroy",
-                "getIdentity",
-                "isUserIdentified",
-                "clearIdentity",
-                "openConversations",
-                "openConversation",
-                "openHelpCenterCollection",
-                "openHelpCenterArticle",
-                "openHelpCenter",
-                "searchHelpCenter",
-                "openNewsArticle",
-                "openChecklists",
-                "startChecklist",
-                "openNews",
-                "openFeatureRequests",
-                "isLiveMode",
-              ],
-              Gleap.f = function (e) {
-                return function () {
-                  var t = Array.prototype.slice.call(arguments);
-                  window.GleapActions.push({ e: e, a: t });
-                };
-              },
-              t = 0;
-            t < Gleap.methods.length;
-            t++
-          )
-            Gleap[(i = Gleap.methods[t])] = Gleap.f(i);
-          (Gleap.load = function () {
-            var t = document.getElementsByTagName("head")[0],
-              i = document.createElement("script");
-            (i.type = "text/javascript"),
-              (i.async = !0),
-              (i.src = "https://sdk.gleap.io/latest/index.js"),
-              t.appendChild(i);
-          }),
-            Gleap.load(),
-            Gleap.initialize("AWgSKIC1b9ZgFMyt29I0VWOUUYxQSfJo");
-        }
-      })();
-    </script>
+
   </head>
   <body class="font-sans text-gray-800">
     <!-- Header -->
@@ -672,7 +592,7 @@
     </script>
 
     <!-- Hero Section -->
-    <section class="relative h-[75vh] flex items-center">
+    <section class="relative h-[100vh] md:h-[75vh] flex items-center">
       <div class="absolute inset-0">
         <img
           src="https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68506368d97df57e336772da.webp"
@@ -685,11 +605,11 @@
       <div class="container mx-auto px-4 relative z-10">
         <div class="max-w-4xl mx-auto text-center">
           <!-- Large Logo Above Headline -->
-          <div class="mb-8 animate-fadeIn">
+          <div class="mb-6 md:mb-8 animate-fadeIn">
             <img
               src="https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/681439e6dde4a49484f17fe1.webp"
               alt="Essential Property Services Logo"
-              class="h-36 md:h-48 lg:h-60 mx-auto brightness-0 invert"
+              class="h-24 sm:h-32 md:h-48 lg:h-60 mx-auto brightness-0 invert"
               style="
                 filter: brightness(0) invert(1)
                   drop-shadow(0 0 8px rgba(0, 0, 0, 0.5));
@@ -1428,7 +1348,7 @@
               </div>
               <div
                 class="booking-container"
-                style="height: 600px; overflow: hidden"
+                style="height: 800px; overflow: hidden"
               >
                 <iframe
                   src="https://api.leadconnectorhq.com/widget/booking/NuS5BqNCvLPpRUBBllGn"
