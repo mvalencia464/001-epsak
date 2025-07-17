@@ -103,6 +103,7 @@
         .consent-checkbox {
           font-size: 12px;
           margin-bottom: 0; /* Reduce bottom margin on mobile */
+          padding: 12px; /* Reduce padding on mobile */
         }
       }
 
@@ -113,6 +114,7 @@
         .consent-checkbox {
           font-size: 11px;
           margin-bottom: 0; /* Reduce bottom margin on small mobile */
+          padding: 10px; /* Reduce padding on small mobile */
         }
       }
 
@@ -121,12 +123,24 @@
         margin-top: 0;
         margin-bottom: 0;
         padding-bottom: 0;
+        transition: all 0.3s ease;
       }
 
       .consent-checkbox input[type="checkbox"] {
         accent-color: var(--hl-primary);
         width: 16px;
         height: 16px;
+        cursor: pointer;
+      }
+
+      .consent-checkbox:hover {
+        background-color: #f8fafc;
+        border-color: var(--hl-primary);
+      }
+
+      .consent-checkbox.error {
+        border-color: #ef4444;
+        background-color: #fef2f2;
       }
 
       /* Remove any potential padding from parent containers */
@@ -548,8 +562,46 @@
 
         // Handle marketing consent checkbox
         const consentCheckbox = document.getElementById("marketingConsent");
+        const consentError = document.getElementById("consent-error");
+        const consentContainer = document.querySelector(".consent-checkbox");
+
         if (consentCheckbox) {
+          // Function to validate consent checkbox
+          function validateConsent() {
+            const formOverlay = document.getElementById("form-overlay");
+
+            if (!consentCheckbox.checked) {
+              consentError.classList.remove("hidden");
+              consentContainer.classList.add("error");
+
+              // Show overlay to prevent form submission
+              if (formOverlay) {
+                formOverlay.classList.remove("hidden");
+              }
+
+              // Scroll to the consent checkbox to make the error visible
+              consentContainer.scrollIntoView({ behavior: "smooth", block: "center" });
+
+              return false;
+            } else {
+              consentError.classList.add("hidden");
+              consentContainer.classList.remove("error");
+
+              // Hide overlay when consent is given
+              if (formOverlay) {
+                formOverlay.classList.add("hidden");
+              }
+
+              return true;
+            }
+          }
+
           consentCheckbox.addEventListener("change", function () {
+            // Clear error state when checkbox is checked
+            if (consentCheckbox.checked) {
+              validateConsent();
+            }
+
             // Send message to HighLevel form iframe
             const formIframe = document.getElementById(
               "inline-wZJleRMUcriSmn86ySdF"
@@ -582,10 +634,77 @@
             }
           });
 
+          // Intercept form submissions to validate consent
+          window.addEventListener("message", function(event) {
+            // Listen for form submission attempts from the iframe
+            if (event.data && typeof event.data === "string") {
+              try {
+                const data = JSON.parse(event.data);
+                if (data.type === "form_submit" || data.action === "submit") {
+                  if (!validateConsent()) {
+                    // Prevent form submission by sending a cancel message
+                    const formIframe = document.getElementById("inline-wZJleRMUcriSmn86ySdF");
+                    if (formIframe && formIframe.contentWindow) {
+                      formIframe.contentWindow.postMessage(
+                        JSON.stringify({ type: "cancel_submit" }),
+                        "*"
+                      );
+                    }
+                    // Scroll to the consent checkbox to make the error visible
+                    consentContainer.scrollIntoView({ behavior: "smooth", block: "center" });
+                    return false;
+                  }
+                }
+              } catch (e) {
+                // Ignore parsing errors for non-JSON messages
+              }
+            }
+          });
+
           // Check if consent was previously given
           const savedConsent = localStorage.getItem("epsak_marketing_consent");
           if (savedConsent === "true") {
             consentCheckbox.checked = true;
+            validateConsent();
+          }
+
+          // Additional form validation - monitor for submit button clicks
+          const formIframe = document.getElementById("inline-wZJleRMUcriSmn86ySdF");
+          const formContainer = document.querySelector(".form-container");
+
+          if (formContainer) {
+            // Add click listener to form container to catch submit attempts
+            formContainer.addEventListener("click", function(event) {
+              // Small delay to allow the click to register, then check consent
+              setTimeout(function() {
+                if (!consentCheckbox.checked) {
+                  validateConsent();
+                }
+              }, 100);
+            });
+          }
+
+          if (formIframe) {
+            // Monitor iframe load to add additional validation
+            formIframe.addEventListener("load", function() {
+              // Periodically check if form submission should be prevented
+              setInterval(function() {
+                if (!consentCheckbox.checked) {
+                  // Try to communicate with iframe to prevent submission
+                  try {
+                    formIframe.contentWindow.postMessage(
+                      JSON.stringify({
+                        type: "consent_required",
+                        message: "Marketing consent required before submission"
+                      }),
+                      "*"
+                    );
+                  } catch (e) {
+                    // Cross-origin restrictions may prevent this
+                  }
+                }
+              }, 2000);
+            });
           }
         }
       });
@@ -1511,7 +1630,7 @@
                 Request Your Free Estimate
               </h3>
               <div
-                class="form-container"
+                class="form-container relative"
                 style="height: 800px; border-radius: 6px; overflow: visible"
               >
                 <iframe
@@ -1538,22 +1657,44 @@
                   title="Estimate Form"
                 >
                 </iframe>
+
+                <!-- Overlay to prevent form submission without consent -->
+                <div id="form-overlay" class="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center hidden">
+                  <div class="text-center p-6 bg-white rounded-lg shadow-lg border border-red-200">
+                    <div class="text-red-600 mb-2">
+                      <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.268 19.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Consent Required</h3>
+                    <p class="text-gray-600 mb-4">Please check the marketing consent checkbox below to submit your request.</p>
+                    <button onclick="document.getElementById('form-overlay').classList.add('hidden')" class="bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition">
+                      OK
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div class="consent-checkbox mt-0 mb-0 text-sm text-gray-600">
+
+              <!-- Marketing Consent Checkbox - Required -->
+              <div class="consent-checkbox mt-3 mb-4 p-4 bg-gray-50 border border-gray-200 rounded-lg">
                 <label class="flex items-start cursor-pointer">
                   <input
                     type="checkbox"
-                    class="mt-1 mr-2"
+                    class="mt-1 mr-3 w-4 h-4"
                     id="marketingConsent"
+                    required
                   />
-                  <span
-                    >I agree to receive marketing messaging from Essential
+                  <span class="text-sm text-gray-700 leading-relaxed">
+                    <strong class="text-red-600">*Required:</strong> I agree to receive marketing messaging from Essential
                     Property Services at the phone number provided above. I
                     understand I will receive 2 messages a month, data rates may
                     apply, reply STOP to opt out. This data will be mapped to
-                    HighLevel.</span
-                  >
+                    HighLevel.
+                  </span>
                 </label>
+                <div id="consent-error" class="text-red-600 text-sm mt-2 hidden">
+                  Please check this box to submit your request.
+                </div>
               </div>
               <script src="https://link.msgsndr.com/js/form_embed.js"></script>
             </div>
