@@ -57,201 +57,195 @@
         transform: scale(1.02);
       }
     </style>
-    <script>
-      !(function (Gleap, t, i) {
-        if (!(Gleap = window.Gleap = window.Gleap || []).invoked) {
-          for (
-            window.GleapActions = [],
-              Gleap.invoked = !0,
-              Gleap.methods = [
-                "identify",
-                "setEnvironment",
-                "setTags",
-                "attachCustomData",
-                "setCustomData",
-                "removeCustomData",
-                "clearCustomData",
-                "registerCustomAction",
-                "trackEvent",
-                "setUseCookies",
-                "log",
-                "preFillForm",
-                "showSurvey",
-                "sendSilentCrashReport",
-                "startFeedbackFlow",
-                "startBot",
-                "setAppBuildNumber",
-                "setAppVersionCode",
-                "setApiUrl",
-                "setFrameUrl",
-                "isOpened",
-                "open",
-                "close",
-                "on",
-                "setLanguage",
-                "setOfflineMode",
-                "startClassicForm",
-                "initialize",
-                "disableConsoleLogOverwrite",
-                "logEvent",
-                "hide",
-                "enableShortcuts",
-                "showFeedbackButton",
-                "destroy",
-                "getIdentity",
-                "isUserIdentified",
-                "clearIdentity",
-                "openConversations",
-                "openConversation",
-                "openHelpCenterCollection",
-                "openHelpCenterArticle",
-                "openHelpCenter",
-                "searchHelpCenter",
-                "openNewsArticle",
-                "openChecklists",
-                "startChecklist",
-                "openNews",
-                "openFeatureRequests",
-                "isLiveMode",
-              ],
-              Gleap.f = function (e) {
-                return function () {
-                  var t = Array.prototype.slice.call(arguments);
-                  window.GleapActions.push({ e: e, a: t });
-                };
-              },
-              t = 0;
-            t < Gleap.methods.length;
-            t++
-          )
-            Gleap[(i = Gleap.methods[t])] = Gleap.f(i);
-          (Gleap.load = function () {
-            var t = document.getElementsByTagName("head")[0],
-              i = document.createElement("script");
-            (i.type = "text/javascript"),
-              (i.async = !0),
-              (i.src = "https://sdk.gleap.io/latest/index.js"),
-              t.appendChild(i);
-          }),
-            Gleap.load(),
-            Gleap.initialize("AWgSKIC1b9ZgFMyt29I0VWOUUYxQSfJo");
-        }
-      })();
-    </script>
+
   </head>
   <body class="font-sans text-gray-800">
     <!-- Header -->
     <header
       id="header"
-      class="fixed w-full z-50 transition-all duration-300 py-4"
+      class="fixed w-full z-50 transition-all duration-300 py-6"
     >
       <div class="container mx-auto px-4 md:px-6">
-        <div class="flex justify-between items-center">
-          <div class="flex items-center">
-            <a href="index.html">
-              <img
-                src="https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/681439e6dde4a49484f17fe1.webp"
-                alt="Essential Property Services Logo"
-                class="h-12 md:h-16"
-              />
-            </a>
-          </div>
-
-          <div class="hidden md:flex items-center space-x-8">
-            <nav>
-              <ul class="flex space-x-6">
-                <li>
-                  <a
-                    href="services.html"
-                    class="nav-link font-medium hover:text-primary transition text-white"
-                    >Services</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="portfolio.html"
-                    class="nav-link font-medium hover:text-primary transition text-white"
-                    >Portfolio</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="team.html"
-                    class="nav-link font-medium hover:text-primary transition text-white"
-                    >Our Team</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="index.html#contact"
-                    class="nav-link font-medium hover:text-primary transition text-white"
-                    >Contact</a
-                  >
-                </li>
-              </ul>
-            </nav>
-
-            <a
-              href="tel:9076009900"
-              class="flex items-center bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md font-medium transition"
+        <!-- Mobile: Small floating menu on right -->
+        <div class="lg:hidden flex justify-end">
+          <div
+            id="navContainer"
+            class="backdrop-blur-sm rounded-2xl px-4 py-3 transition-all duration-300 w-auto"
+          >
+            <!-- Mobile Menu Button -->
+            <button
+              id="mobileMenuBtn"
+              class="text-white"
+              onclick="toggleMobileMenu()"
             >
               <svg
-                class="w-[18px] h-[18px] mr-2"
+                class="w-7 h-7"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                />
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
               </svg>
-              (907) 600-9900
-            </a>
+            </button>
           </div>
+        </div>
 
-          <button class="md:hidden text-primary" onclick="toggleMobileMenu()">
-            <svg
-              class="w-7 h-7"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
+        <!-- Desktop: Full width navigation -->
+        <div
+          id="navContainerDesktop"
+          class="hidden lg:block backdrop-blur-sm rounded-2xl px-6 py-4 transition-all duration-300"
+        >
+          <div class="flex justify-center items-center">
+            <!-- Left Navigation -->
+            <div class="flex items-center space-x-8 mr-auto">
+              <nav>
+                <ul class="flex space-x-8">
+                  <li>
+                    <a
+                      href="index.html"
+                      class="nav-link hover:text-accent transition text-white"
+                      title="Home"
+                    >
+                      <svg
+                        class="w-6 h-6"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                        ></path>
+                        <polyline points="9,22 9,12 15,12 15,22"></polyline>
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="services.html"
+                      class="nav-link font-bold hover:text-accent transition text-white text-lg"
+                      >Services</a
+                    >
+                  </li>
+
+                  <li>
+                    <a
+                      href="team.html"
+                      class="nav-link font-bold hover:text-accent transition text-white text-lg"
+                      >Our Team</a
+                    >
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <!-- Right Navigation -->
+            <div class="flex items-center space-x-4 ml-auto">
+              <!-- Emergency Call Button -->
+              <a
+                href="tel:9076009900"
+                class="flex items-center bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-md font-bold transition text-sm"
+              >
+                <svg
+                  class="w-[18px] h-[18px] mr-2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+                Emergency 24/7
+              </a>
+
+              <!-- Maintenance Button -->
+              <a
+                href="index.html#contact"
+                class="nav-link font-bold hover:bg-white/90 transition bg-white text-primary text-sm px-4 py-3 rounded-md"
+                >Maintenance</a
+              >
+
+              <!-- Estimate Button -->
+              <a
+                href="index.html#scheduling"
+                class="flex items-center bg-accent hover:bg-accent/90 text-primary px-4 py-3 rounded-md font-bold transition text-sm"
+              >
+                <svg
+                  class="w-[18px] h-[18px] mr-2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Estimate
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Mobile menu -->
-      <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg">
-        <nav class="container mx-auto px-4 py-4">
+      <div
+        id="mobileMenu"
+        class="hidden lg:hidden bg-white/95 backdrop-blur-sm shadow-lg fixed top-0 left-0 right-0 z-50 mt-20 max-h-[calc(100vh-5rem)] overflow-y-auto rounded-b-2xl mx-4"
+      >
+        <nav class="px-6 py-6">
           <ul class="space-y-4">
             <li>
               <a
+                href="index.html"
+                class="flex items-center py-3 text-gray-800 font-medium hover:text-primary text-lg"
+                onclick="closeMobileMenu()"
+              >
+                <svg
+                  class="w-5 h-5 mr-3"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                  ></path>
+                  <polyline points="9,22 9,12 15,12 15,22"></polyline>
+                </svg>
+                Home
+              </a>
+            </li>
+            <li>
+              <a
                 href="services.html"
-                class="block py-2 text-gray-800 font-medium hover:text-primary"
+                class="block py-3 text-gray-800 font-medium hover:text-primary text-lg"
                 onclick="closeMobileMenu()"
               >
                 Services
               </a>
             </li>
-            <li>
-              <a
-                href="portfolio.html"
-                class="block py-2 text-gray-800 font-medium hover:text-primary"
-                onclick="closeMobileMenu()"
-              >
-                Portfolio
-              </a>
-            </li>
+
             <li>
               <a
                 href="team.html"
-                class="block py-2 text-gray-800 font-medium hover:text-primary"
+                class="block py-3 text-gray-800 font-medium hover:text-primary text-lg"
                 onclick="closeMobileMenu()"
               >
                 Our Team
@@ -260,16 +254,17 @@
             <li>
               <a
                 href="index.html#contact"
-                class="block py-2 text-gray-800 font-medium hover:text-primary"
+                class="block py-3 text-gray-800 font-medium hover:text-primary text-lg"
                 onclick="closeMobileMenu()"
               >
-                Contact
+                Maintenance
               </a>
             </li>
-            <li>
+            <!-- Emergency Call Button -->
+            <li class="pt-4">
               <a
                 href="tel:9076009900"
-                class="flex items-center w-full bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-md font-medium justify-center transition"
+                class="flex items-center w-full bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-md font-bold justify-center transition"
                 onclick="closeMobileMenu()"
               >
                 <svg
@@ -278,12 +273,38 @@
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 >
                   <path
                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
                   />
                 </svg>
-                (907) 600-9900
+                Emergency 24/7
+              </a>
+            </li>
+            <!-- Estimate Button -->
+            <li>
+              <a
+                href="index.html#scheduling"
+                class="flex items-center w-full bg-accent hover:bg-accent/90 text-primary px-4 py-3 rounded-md font-bold justify-center transition mt-2"
+                onclick="closeMobileMenu()"
+              >
+                <svg
+                  class="w-[18px] h-[18px] mr-2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Get Estimate
               </a>
             </li>
           </ul>
@@ -718,7 +739,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
             <img
-              src="https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/681439e6dde4a49484f17fe1.webp"
+              src="https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/681586cfdb0184d1a887b9de.svg"
               alt="Essential Property Services Logo"
               class="h-16 mb-4"
             />
@@ -846,31 +867,103 @@
     </footer>
 
     <script>
-      // Header scroll effect
+      // Header scroll effect with transparent/white background transition
       window.addEventListener("scroll", () => {
         const header = document.getElementById("header");
+        const navContainer = document.getElementById("navContainer");
+        const navContainerDesktop = document.getElementById(
+          "navContainerDesktop"
+        );
         const navLinks = document.querySelectorAll(".nav-link");
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
 
         if (window.scrollY > 20) {
-          header.classList.remove("py-4");
-          header.classList.add("bg-white", "shadow-md", "py-2");
-          navLinks.forEach((link) => {
-            link.classList.remove("text-white");
-            link.classList.add("text-gray-800");
-          });
-        } else {
+          // Scrolled state - white background
+          header.classList.remove("py-6");
           header.classList.add("py-4");
-          header.classList.remove("bg-white", "shadow-md", "py-2");
+
+          // Apply to both mobile and desktop containers
+          if (navContainer) {
+            navContainer.classList.add("bg-white/95", "shadow-lg");
+          }
+          if (navContainerDesktop) {
+            navContainerDesktop.classList.add("bg-white/95", "shadow-lg");
+          }
+
+          // Change text colors to dark (except maintenance button which stays white bg)
           navLinks.forEach((link) => {
-            link.classList.add("text-white");
-            link.classList.remove("text-gray-800");
+            if (link.textContent.trim() === "Maintenance") {
+              // Maintenance button stays white with purple text
+              link.classList.remove(
+                "text-white",
+                "hover:text-accent",
+                "bg-white",
+                "hover:bg-white/90"
+              );
+              link.classList.add(
+                "text-primary",
+                "bg-gray-100",
+                "hover:bg-gray-200"
+              );
+            } else {
+              link.classList.remove("text-white", "hover:text-accent");
+              link.classList.add("text-gray-800", "hover:text-primary");
+            }
           });
+
+          if (mobileMenuBtn) {
+            mobileMenuBtn.classList.remove("text-white");
+            mobileMenuBtn.classList.add("text-primary");
+          }
+        } else {
+          // Top of page - transparent background
+          header.classList.add("py-6");
+          header.classList.remove("py-4");
+
+          // Remove from both mobile and desktop containers
+          if (navContainer) {
+            navContainer.classList.remove("bg-white/95", "shadow-lg");
+          }
+          if (navContainerDesktop) {
+            navContainerDesktop.classList.remove("bg-white/95", "shadow-lg");
+          }
+
+          // Change text colors to white
+          navLinks.forEach((link) => {
+            if (link.textContent.trim() === "Maintenance") {
+              // Maintenance button is white with purple text
+              link.classList.remove(
+                "text-primary",
+                "bg-gray-100",
+                "hover:bg-gray-200"
+              );
+              link.classList.add(
+                "text-primary",
+                "bg-white",
+                "hover:bg-white/90"
+              );
+            } else {
+              link.classList.remove("text-gray-800", "hover:text-primary");
+              link.classList.add("text-white", "hover:text-accent");
+            }
+          });
+
+          if (mobileMenuBtn) {
+            mobileMenuBtn.classList.remove("text-primary");
+            mobileMenuBtn.classList.add("text-white");
+          }
         }
       });
 
       // Mobile menu toggle
       function toggleMobileMenu() {
         const mobileMenu = document.getElementById("mobileMenu");
+        const header = document.getElementById("header");
+
+        // Adjust mobile menu position based on header height
+        const headerHeight = header.offsetHeight;
+        mobileMenu.style.marginTop = headerHeight + "px";
+
         mobileMenu.classList.toggle("hidden");
       }
 

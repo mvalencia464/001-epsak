@@ -63,145 +63,134 @@
         outline: none;
         box-shadow: 0 0 0 3px rgba(75, 0, 130, 0.2);
       }
-    </style>
-    <script>
-      !(function (Gleap, t, i) {
-        if (!(Gleap = window.Gleap = window.Gleap || []).invoked) {
-          for (
-            window.GleapActions = [],
-              Gleap.invoked = !0,
-              Gleap.methods = [
-                "identify",
-                "setEnvironment",
-                "setTags",
-                "attachCustomData",
-                "setCustomData",
-                "removeCustomData",
-                "clearCustomData",
-                "registerCustomAction",
-                "trackEvent",
-                "setUseCookies",
-                "log",
-                "preFillForm",
-                "showSurvey",
-                "sendSilentCrashReport",
-                "startFeedbackFlow",
-                "startBot",
-                "setAppBuildNumber",
-                "setAppVersionCode",
-                "setApiUrl",
-                "setFrameUrl",
-                "isOpened",
-                "open",
-                "close",
-                "on",
-                "setLanguage",
-                "setOfflineMode",
-                "startClassicForm",
-                "initialize",
-                "disableConsoleLogOverwrite",
-                "logEvent",
-                "hide",
-                "enableShortcuts",
-                "showFeedbackButton",
-                "destroy",
-                "getIdentity",
-                "isUserIdentified",
-                "clearIdentity",
-                "openConversations",
-                "openConversation",
-                "openHelpCenterCollection",
-                "openHelpCenterArticle",
-                "openHelpCenter",
-                "searchHelpCenter",
-                "openNewsArticle",
-                "openChecklists",
-                "startChecklist",
-                "openNews",
-                "openFeatureRequests",
-                "isLiveMode",
-              ],
-              Gleap.f = function (e) {
-                return function () {
-                  var t = Array.prototype.slice.call(arguments);
-                  window.GleapActions.push({ e: e, a: t });
-                };
-              },
-              t = 0;
-            t < Gleap.methods.length;
-            t++
-          )
-            Gleap[(i = Gleap.methods[t])] = Gleap.f(i);
-          (Gleap.load = function () {
-            var t = document.getElementsByTagName("head")[0],
-              i = document.createElement("script");
-            (i.type = "text/javascript"),
-              (i.async = !0),
-              (i.src = "https://sdk.gleap.io/latest/index.js"),
-              t.appendChild(i);
-          }),
-            Gleap.load(),
-            Gleap.initialize("AWgSKIC1b9ZgFMyt29I0VWOUUYxQSfJo");
+
+      /* Custom styles for HighLevel forms */
+      .form-container iframe,
+      .booking-container iframe {
+        background-color: transparent;
+      }
+
+      /* Add custom styling for HighLevel forms */
+      :root {
+        --hl-primary: #4b0082; /* Your primary purple color */
+        --hl-accent: #ffd700; /* Your accent gold color */
+      }
+
+      /* This will help influence the form styling through iframe */
+      .form-container,
+      .booking-container {
+        position: relative;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0;
+        overflow: visible !important;
+        transition: none !important;
+        transform: none !important;
+      }
+
+      /* Disable any animations or hover effects */
+      .form-container:hover,
+      .booking-container:hover {
+        transform: none !important;
+        box-shadow: none !important;
+      }
+
+      /* Responsive adjustments for forms */
+      @media (max-width: 768px) {
+        .form-container {
+          height: 800px !important; /* Adjusted height for mobile */
         }
-      })();
-    </script>
+        .consent-checkbox {
+          font-size: 12px;
+          margin-bottom: 0; /* Reduce bottom margin on mobile */
+          padding: 12px; /* Reduce padding on mobile */
+        }
+      }
+
+      @media (max-width: 480px) {
+        .form-container {
+          height: 850px !important; /* Adjusted height for small mobile */
+        }
+        .consent-checkbox {
+          font-size: 11px;
+          margin-bottom: 0; /* Reduce bottom margin on small mobile */
+          padding: 10px; /* Reduce padding on small mobile */
+        }
+      }
+
+      /* Style the consent checkbox */
+      .consent-checkbox {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        transition: all 0.3s ease;
+      }
+
+      .consent-checkbox input[type="checkbox"] {
+        accent-color: var(--hl-primary);
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+      }
+
+      .consent-checkbox:hover {
+        background-color: #f8fafc;
+        border-color: var(--hl-primary);
+      }
+
+      .consent-checkbox.error {
+        border-color: #ef4444;
+        background-color: #fef2f2;
+      }
+
+      /* Remove any potential padding from parent containers */
+      .form-container > iframe,
+      .booking-container > iframe {
+        display: block;
+        padding: 0;
+        margin: 0;
+      }
+
+      .form-container::after,
+      .booking-container::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(
+          to right,
+          var(--hl-primary),
+          var(--hl-accent)
+        );
+        z-index: 10;
+        pointer-events: none;
+      }
+    </style>
+
   </head>
   <body class="font-sans text-gray-800">
     <!-- Header -->
     <header
       id="header"
-      class="fixed w-full z-50 transition-all duration-300 py-4"
+      class="fixed w-full z-50 transition-all duration-300 py-6"
     >
       <div class="container mx-auto px-4 md:px-6">
-        <div class="flex justify-between items-center">
-          <div class="flex items-center">
-            <img
-              src="https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/681439e6dde4a49484f17fe1.webp"
-              alt="Essential Property Services Logo"
-              class="h-12 md:h-16"
-            />
-          </div>
-
-          <div class="hidden md:flex items-center space-x-8">
-            <nav>
-              <ul class="flex space-x-6">
-                <li>
-                  <a
-                    href="services.html"
-                    class="nav-link font-medium hover:text-primary transition text-white"
-                    >Services</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="portfolio.html"
-                    class="nav-link font-medium hover:text-primary transition text-white"
-                    >Portfolio</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="team.html"
-                    class="nav-link font-medium hover:text-primary transition text-white"
-                    >Our Team</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#contact"
-                    class="nav-link font-medium hover:text-primary transition text-white"
-                    >Contact</a
-                  >
-                </li>
-              </ul>
-            </nav>
-
-            <a
-              href="tel:9076009900"
-              class="flex items-center bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md font-medium transition"
+        <!-- Mobile: Small floating menu on right -->
+        <div class="lg:hidden flex justify-end">
+          <div
+            id="navContainer"
+            class="backdrop-blur-sm rounded-2xl px-4 py-3 transition-all duration-300 w-auto"
+          >
+            <!-- Mobile Menu Button -->
+            <button
+              id="mobileMenuBtn"
+              class="text-white"
+              onclick="toggleMobileMenu()"
             >
               <svg
-                class="w-[18px] h-[18px] mr-2"
+                class="w-7 h-7"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -209,61 +198,120 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                />
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
               </svg>
-              (907) 600-9900
-            </a>
+            </button>
           </div>
+        </div>
 
-          <button class="md:hidden text-primary" onclick="toggleMobileMenu()">
-            <svg
-              class="w-7 h-7"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
+        <!-- Desktop: Full width navigation -->
+        <div
+          id="navContainerDesktop"
+          class="hidden lg:block backdrop-blur-sm rounded-2xl px-6 py-4 transition-all duration-300"
+        >
+          <div class="flex justify-center items-center">
+            <!-- Left Navigation -->
+            <div class="flex items-center space-x-8 mr-auto">
+              <nav>
+                <ul class="flex space-x-8">
+                  <li>
+                    <a
+                      href="services.html"
+                      class="nav-link font-bold hover:text-accent transition text-white text-lg"
+                      >Services</a
+                    >
+                  </li>
+
+                  <li>
+                    <a
+                      href="team.html"
+                      class="nav-link font-bold hover:text-accent transition text-white text-lg"
+                      >Our Team</a
+                    >
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <!-- Right Navigation -->
+            <div class="flex items-center space-x-4 ml-auto">
+              <!-- Emergency Call Button -->
+              <a
+                href="tel:9076009900"
+                class="flex items-center bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-md font-bold transition text-sm"
+              >
+                <svg
+                  class="w-[18px] h-[18px] mr-2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+                Emergency 24/7
+              </a>
+
+              <!-- Maintenance Button -->
+              <a
+                href="#contact"
+                class="nav-link font-bold hover:bg-white/90 transition bg-white text-primary text-sm px-4 py-3 rounded-md"
+                >Maintenance</a
+              >
+
+              <!-- Estimate Button -->
+              <a
+                href="#scheduling"
+                class="flex items-center bg-accent hover:bg-accent/90 text-primary px-4 py-3 rounded-md font-bold transition text-sm"
+              >
+                <svg
+                  class="w-[18px] h-[18px] mr-2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Estimate
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Mobile menu -->
       <div
         id="mobileMenu"
-        class="hidden md:hidden bg-white shadow-lg fixed top-0 left-0 right-0 z-50 mt-16 max-h-[calc(100vh-4rem)] overflow-y-auto"
+        class="hidden lg:hidden bg-white/95 backdrop-blur-sm shadow-lg fixed top-0 left-0 right-0 z-50 mt-20 max-h-[calc(100vh-5rem)] overflow-y-auto rounded-b-2xl mx-4"
       >
-        <nav class="container mx-auto px-4 py-4">
+        <nav class="px-6 py-6">
           <ul class="space-y-4">
             <li>
               <a
                 href="services.html"
-                class="block py-2 text-gray-800 font-medium hover:text-primary"
+                class="block py-3 text-gray-800 font-medium hover:text-primary text-lg"
                 onclick="closeMobileMenu()"
               >
                 Services
               </a>
             </li>
-            <li>
-              <a
-                href="portfolio.html"
-                class="block py-2 text-gray-800 font-medium hover:text-primary"
-                onclick="closeMobileMenu()"
-              >
-                Portfolio
-              </a>
-            </li>
+
             <li>
               <a
                 href="team.html"
-                class="block py-2 text-gray-800 font-medium hover:text-primary"
+                class="block py-3 text-gray-800 font-medium hover:text-primary text-lg"
                 onclick="closeMobileMenu()"
               >
                 Our Team
@@ -272,16 +320,17 @@
             <li>
               <a
                 href="#contact"
-                class="block py-2 text-gray-800 font-medium hover:text-primary"
+                class="block py-3 text-gray-800 font-medium hover:text-primary text-lg"
                 onclick="closeMobileMenu()"
               >
-                Contact
+                Maintenance
               </a>
             </li>
-            <li>
+            <!-- Emergency Call Button -->
+            <li class="pt-4">
               <a
                 href="tel:9076009900"
-                class="flex items-center w-full bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-md font-medium justify-center transition"
+                class="flex items-center w-full bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-md font-bold justify-center transition"
                 onclick="closeMobileMenu()"
               >
                 <svg
@@ -297,7 +346,31 @@
                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
                   />
                 </svg>
-                (907) 600-9900
+                Emergency 24/7
+              </a>
+            </li>
+            <!-- Estimate Button -->
+            <li>
+              <a
+                href="#scheduling"
+                class="flex items-center w-full bg-accent hover:bg-accent/90 text-primary px-4 py-3 rounded-md font-bold justify-center transition mt-2"
+                onclick="closeMobileMenu()"
+              >
+                <svg
+                  class="w-[18px] h-[18px] mr-2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Get Estimate
               </a>
             </li>
           </ul>
@@ -306,25 +379,91 @@
     </header>
 
     <script>
-      // Header scroll effect
+      // Header scroll effect with transparent/white background transition
       window.addEventListener("scroll", () => {
         const header = document.getElementById("header");
+        const navContainer = document.getElementById("navContainer");
+        const navContainerDesktop = document.getElementById(
+          "navContainerDesktop"
+        );
         const navLinks = document.querySelectorAll(".nav-link");
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
 
         if (window.scrollY > 20) {
-          header.classList.remove("py-4");
-          header.classList.add("bg-white", "shadow-md", "py-2");
-          navLinks.forEach((link) => {
-            link.classList.remove("text-white");
-            link.classList.add("text-gray-800");
-          });
-        } else {
+          // Scrolled state - white background
+          header.classList.remove("py-6");
           header.classList.add("py-4");
-          header.classList.remove("bg-white", "shadow-md", "py-2");
+
+          // Apply to both mobile and desktop containers
+          if (navContainer) {
+            navContainer.classList.add("bg-white/95", "shadow-lg");
+          }
+          if (navContainerDesktop) {
+            navContainerDesktop.classList.add("bg-white/95", "shadow-lg");
+          }
+
+          // Change text colors to dark (except maintenance button which stays white bg)
           navLinks.forEach((link) => {
-            link.classList.add("text-white");
-            link.classList.remove("text-gray-800");
+            if (link.textContent.trim() === "Maintenance") {
+              // Maintenance button stays white with purple text
+              link.classList.remove(
+                "text-white",
+                "hover:text-accent",
+                "bg-white",
+                "hover:bg-white/90"
+              );
+              link.classList.add(
+                "text-primary",
+                "bg-gray-100",
+                "hover:bg-gray-200"
+              );
+            } else {
+              link.classList.remove("text-white", "hover:text-accent");
+              link.classList.add("text-gray-800", "hover:text-primary");
+            }
           });
+
+          if (mobileMenuBtn) {
+            mobileMenuBtn.classList.remove("text-white");
+            mobileMenuBtn.classList.add("text-primary");
+          }
+        } else {
+          // Top of page - transparent background
+          header.classList.add("py-6");
+          header.classList.remove("py-4");
+
+          // Remove from both mobile and desktop containers
+          if (navContainer) {
+            navContainer.classList.remove("bg-white/95", "shadow-lg");
+          }
+          if (navContainerDesktop) {
+            navContainerDesktop.classList.remove("bg-white/95", "shadow-lg");
+          }
+
+          // Change text colors to white
+          navLinks.forEach((link) => {
+            if (link.textContent.trim() === "Maintenance") {
+              // Maintenance button is white with purple text
+              link.classList.remove(
+                "text-primary",
+                "bg-gray-100",
+                "hover:bg-gray-200"
+              );
+              link.classList.add(
+                "text-primary",
+                "bg-white",
+                "hover:bg-white/90"
+              );
+            } else {
+              link.classList.remove("text-gray-800", "hover:text-primary");
+              link.classList.add("text-white", "hover:text-accent");
+            }
+          });
+
+          if (mobileMenuBtn) {
+            mobileMenuBtn.classList.remove("text-primary");
+            mobileMenuBtn.classList.add("text-white");
+          }
         }
       });
 
@@ -344,13 +483,238 @@
         const mobileMenu = document.getElementById("mobileMenu");
         mobileMenu.classList.add("hidden");
       }
+
+      // Ensure smooth scrolling to scheduling section
+      document.querySelectorAll('a[href="#scheduling"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const schedulingSection = document.getElementById("scheduling");
+          if (schedulingSection) {
+            schedulingSection.scrollIntoView({
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Helper function to style HighLevel forms
+      window.addEventListener("load", function () {
+        // Add message event listener to communicate with iframes
+        window.addEventListener("message", function (event) {
+          // Check if the message is from HighLevel
+          if (
+            event.data &&
+            typeof event.data === "string" &&
+            event.data.includes("highLevel")
+          ) {
+            console.log("Received message from HighLevel form:", event.data);
+
+            // If we receive a form height message, we could adjust container height
+            if (event.data.includes("formHeight")) {
+              try {
+                const data = JSON.parse(event.data);
+                if (data.formHeight) {
+                  // Add moderate padding to ensure submit button is visible
+                  const formHeight = data.formHeight + 100; // Reduced padding to minimize extra space
+                  const formContainer =
+                    document.querySelector(".form-container");
+                  if (formContainer) {
+                    formContainer.style.height = formHeight + "px";
+                  }
+                }
+              } catch (e) {
+                console.log("Error parsing form height data", e);
+              }
+            }
+          }
+        });
+
+        // Add custom styling to form containers
+        const formContainers = document.querySelectorAll(
+          ".form-container, .booking-container"
+        );
+        formContainers.forEach((container) => {
+          // Remove hover effect
+          container.classList.remove("hover-grow");
+          // Remove any potential padding
+          container.style.padding = "0";
+        });
+
+        // Check form visibility periodically and adjust if needed
+        setTimeout(function () {
+          const formIframe = document.getElementById(
+            "inline-wZJleRMUcriSmn86ySdF"
+          );
+          if (formIframe) {
+            // Try to ensure the form is fully visible
+            formIframe.style.minHeight = "750px";
+            formIframe.style.padding = "0";
+            formIframe.style.overflow = "visible";
+
+            // Add extra space for the submit button
+            const formContainer = document.querySelector(".form-container");
+            if (formContainer) {
+              formContainer.style.marginBottom = "0";
+            }
+          }
+        }, 1000);
+
+        // Handle marketing consent checkbox
+        const consentCheckbox = document.getElementById("marketingConsent");
+        const consentError = document.getElementById("consent-error");
+        const consentContainer = document.querySelector(".consent-checkbox");
+
+        if (consentCheckbox) {
+          // Function to validate consent checkbox
+          function validateConsent() {
+            const formOverlay = document.getElementById("form-overlay");
+
+            if (!consentCheckbox.checked) {
+              consentError.classList.remove("hidden");
+              consentContainer.classList.add("error");
+
+              // Show overlay to prevent form submission
+              if (formOverlay) {
+                formOverlay.classList.remove("hidden");
+              }
+
+              // Scroll to the consent checkbox to make the error visible
+              consentContainer.scrollIntoView({ behavior: "smooth", block: "center" });
+
+              return false;
+            } else {
+              consentError.classList.add("hidden");
+              consentContainer.classList.remove("error");
+
+              // Hide overlay when consent is given
+              if (formOverlay) {
+                formOverlay.classList.add("hidden");
+              }
+
+              return true;
+            }
+          }
+
+          consentCheckbox.addEventListener("change", function () {
+            // Clear error state when checkbox is checked
+            if (consentCheckbox.checked) {
+              validateConsent();
+            }
+
+            // Send message to HighLevel form iframe
+            const formIframe = document.getElementById(
+              "inline-wZJleRMUcriSmn86ySdF"
+            );
+            if (formIframe && formIframe.contentWindow) {
+              try {
+                const message = {
+                  type: "custom",
+                  action: "marketingConsent",
+                  value: consentCheckbox.checked,
+                };
+                formIframe.contentWindow.postMessage(
+                  JSON.stringify(message),
+                  "*"
+                );
+
+                // Store consent in localStorage for persistence
+                localStorage.setItem(
+                  "epsak_marketing_consent",
+                  consentCheckbox.checked ? "true" : "false"
+                );
+
+                console.log(
+                  "Marketing consent updated:",
+                  consentCheckbox.checked
+                );
+              } catch (e) {
+                console.error("Error sending consent to form:", e);
+              }
+            }
+          });
+
+          // Intercept form submissions to validate consent
+          window.addEventListener("message", function(event) {
+            // Listen for form submission attempts from the iframe
+            if (event.data && typeof event.data === "string") {
+              try {
+                const data = JSON.parse(event.data);
+                if (data.type === "form_submit" || data.action === "submit") {
+                  if (!validateConsent()) {
+                    // Prevent form submission by sending a cancel message
+                    const formIframe = document.getElementById("inline-wZJleRMUcriSmn86ySdF");
+                    if (formIframe && formIframe.contentWindow) {
+                      formIframe.contentWindow.postMessage(
+                        JSON.stringify({ type: "cancel_submit" }),
+                        "*"
+                      );
+                    }
+                    // Scroll to the consent checkbox to make the error visible
+                    consentContainer.scrollIntoView({ behavior: "smooth", block: "center" });
+                    return false;
+                  }
+                }
+              } catch (e) {
+                // Ignore parsing errors for non-JSON messages
+              }
+            }
+          });
+
+          // Check if consent was previously given
+          const savedConsent = localStorage.getItem("epsak_marketing_consent");
+          if (savedConsent === "true") {
+            consentCheckbox.checked = true;
+            validateConsent();
+          }
+
+          // Additional form validation - monitor for submit button clicks
+          const formIframe = document.getElementById("inline-wZJleRMUcriSmn86ySdF");
+          const formContainer = document.querySelector(".form-container");
+
+          if (formContainer) {
+            // Add click listener to form container to catch submit attempts
+            formContainer.addEventListener("click", function(event) {
+              // Small delay to allow the click to register, then check consent
+              setTimeout(function() {
+                if (!consentCheckbox.checked) {
+                  validateConsent();
+                }
+              }, 100);
+            });
+          }
+
+          if (formIframe) {
+            // Monitor iframe load to add additional validation
+            formIframe.addEventListener("load", function() {
+              // Periodically check if form submission should be prevented
+              setInterval(function() {
+                if (!consentCheckbox.checked) {
+                  // Try to communicate with iframe to prevent submission
+                  try {
+                    formIframe.contentWindow.postMessage(
+                      JSON.stringify({
+                        type: "consent_required",
+                        message: "Marketing consent required before submission"
+                      }),
+                      "*"
+                    );
+                  } catch (e) {
+                    // Cross-origin restrictions may prevent this
+                  }
+                }
+              }, 2000);
+            });
+          }
+        }
+      });
     </script>
 
     <!-- Hero Section -->
-    <section class="relative h-[75vh] flex items-center">
+    <section class="relative h-[100vh] md:h-[75vh] flex items-center">
       <div class="absolute inset-0">
         <img
-          src="https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/681a37336cac3426a6a6f1cd.webp"
+          src="https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68506368d97df57e336772da.webp"
           alt="Beautiful Alaskan Home Project"
           class="w-full h-full object-cover"
         />
@@ -358,299 +722,91 @@
       </div>
 
       <div class="container mx-auto px-4 relative z-10">
-        <div class="grid md:grid-cols-5 gap-8 items-center">
-          <div class="md:col-span-3 text-white">
-            <h1
-              class="text-4xl md:text-5xl font-bold leading-tight mb-6 animate-fadeIn"
-            >
-              Anchorage's Trusted Partner for Home Repairs & Remodels
-            </h1>
-            <p class="text-xl mb-8 opacity-90">
-              Finally, an Anchorage contractor who actually shows up,
-              communicates clearly, and delivers top-notch, reliable work.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a
-                href="#contact"
-                class="px-8 py-3 bg-accent hover:bg-accent/90 text-primary font-semibold rounded-md text-center transition"
-              >
-                Get Your FREE Estimate Today!
-              </a>
-              <a
-                href="tel:9076009900"
-                class="px-8 py-3 bg-white hover:bg-gray-100 text-primary font-semibold rounded-md text-center transition flex items-center justify-center"
-              >
-                <svg
-                  class="w-5 h-5 mr-2"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                  />
-                </svg>
-                Call Now: (907) 600-9900
-              </a>
-            </div>
+        <div class="max-w-4xl mx-auto text-center">
+          <!-- Large Logo Above Headline -->
+          <div class="mb-6 md:mb-8 animate-fadeIn">
+            <img
+              src="https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/681439e6dde4a49484f17fe1.webp"
+              alt="Essential Property Services Logo"
+              class="h-24 sm:h-32 md:h-48 lg:h-60 mx-auto brightness-0 invert"
+              style="
+                filter: brightness(0) invert(1)
+                  drop-shadow(0 0 8px rgba(0, 0, 0, 0.5));
+              "
+            />
           </div>
 
-          <div class="md:col-span-2">
-            <div class="bg-white rounded-lg shadow-xl p-6 max-w-sm mx-auto">
-              <h3 class="text-2xl font-bold text-gray-800 mb-4">
-                Get Your Free Quote
-              </h3>
-              <form class="space-y-4">
-                <input
-                  type="text"
-                  placeholder="Full Name"
-                  required
-                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                />
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  required
-                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                />
-                <input
-                  type="tel"
-                  placeholder="Phone Number"
-                  required
-                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                />
-                <select
-                  required
-                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                >
-                  <option value="">Select Project Type</option>
-                  <option value="full-remodel">Full Kitchen Remodel</option>
-                  <option value="cabinet-refresh">Cabinet Refresh</option>
-                  <option value="countertops">Countertop Replacement</option>
-                  <option value="appliances">Appliance Upgrade</option>
-                </select>
-                <textarea
-                  placeholder="Tell us about your project"
-                  rows="3"
-                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                ></textarea>
-                <button
-                  type="submit"
-                  class="w-full py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-md transition"
-                >
-                  Request Free Quote
-                </button>
-              </form>
-
-              <div class="mt-4 text-center">
-                <div class="flex items-center justify-center mb-2">
-                  <div class="text-accent">★★★★★</div>
-                  <span class="ml-2 text-gray-700 font-medium"
-                    >5/5 (26 Reviews)</span
-                  >
-                </div>
-                <p class="text-sm text-gray-600 italic">
-                  "Trusted by over 800 homeowners in our community"
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Problem/Solution Section -->
-    <section class="py-20 bg-gray-50">
-      <div class="container mx-auto px-4 md:px-6">
-        <div class="max-w-4xl mx-auto">
-          <h2
-            class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary"
+          <h1
+            class="text-4xl md:text-5xl font-bold leading-tight mb-10 animate-fadeIn text-white"
           >
-            The Essential Property Services Difference
-          </h2>
+            SERVING PEOPLE AND PROPERTY WITH WISDOM AND HUMILITY
+          </h1>
 
-          <div class="space-y-6">
-            <div class="grid md:grid-cols-2 gap-4">
-              <div class="bg-primary/10 rounded-lg p-6">
-                <div class="flex items-center mb-3">
-                  <svg
-                    class="w-6 h-6 text-red-500 mr-2"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="15" y1="9" x2="9" y2="15"></line>
-                    <line x1="9" y1="9" x2="15" y2="15"></line>
-                  </svg>
-                  <h3 class="text-lg font-semibold text-primary">
-                    Other Contractors
-                  </h3>
-                </div>
-                <p class="text-gray-700">Unreturned calls, vague timelines</p>
-              </div>
+          <!-- Three prominent CTA buttons -->
+          <div class="flex flex-col md:flex-row gap-4 justify-center">
+            <!-- Emergency Call Button -->
+            <a
+              href="tel:9076009900"
+              class="px-8 py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-md text-center transition flex items-center justify-center text-lg"
+            >
+              <svg
+                class="w-6 h-6 mr-2"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+              Emergency Call 24/7
+            </a>
 
-              <div class="bg-accent rounded-lg p-6">
-                <div class="flex items-center mb-3">
-                  <svg
-                    class="w-6 h-6 text-primary mr-2"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                  </svg>
-                  <h3 class="text-lg font-semibold text-primary">
-                    Our Approach
-                  </h3>
-                </div>
-                <p class="text-primary/80">
-                  Same-day responses, clear project schedules
-                </p>
-              </div>
-            </div>
+            <!-- Schedule Repair or Estimate Button -->
+            <a
+              href="tel:9076009900"
+              class="px-8 py-4 bg-accent hover:bg-accent/90 text-primary font-bold rounded-md text-center transition flex items-center justify-center text-lg"
+            >
+              <svg
+                class="w-6 h-6 mr-2"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+              Call for Estimate
+            </a>
 
-            <div class="grid md:grid-cols-2 gap-4">
-              <div class="bg-primary/10 rounded-lg p-6">
-                <div class="flex items-center mb-3">
-                  <svg
-                    class="w-6 h-6 text-red-500 mr-2"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="15" y1="9" x2="9" y2="15"></line>
-                    <line x1="9" y1="9" x2="15" y2="15"></line>
-                  </svg>
-                  <h3 class="text-lg font-semibold text-primary">
-                    Other Contractors
-                  </h3>
-                </div>
-                <p class="text-gray-700">Inconsistent availability</p>
-              </div>
-
-              <div class="bg-accent rounded-lg p-6">
-                <div class="flex items-center mb-3">
-                  <svg
-                    class="w-6 h-6 text-primary mr-2"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                  </svg>
-                  <h3 class="text-lg font-semibold text-primary">
-                    Our Approach
-                  </h3>
-                </div>
-                <p class="text-primary/80">
-                  24/7 emergency service, guaranteed arrival times
-                </p>
-              </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-4">
-              <div class="bg-primary/10 rounded-lg p-6">
-                <div class="flex items-center mb-3">
-                  <svg
-                    class="w-6 h-6 text-red-500 mr-2"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="15" y1="9" x2="9" y2="15"></line>
-                    <line x1="9" y1="9" x2="15" y2="15"></line>
-                  </svg>
-                  <h3 class="text-lg font-semibold text-primary">
-                    Other Contractors
-                  </h3>
-                </div>
-                <p class="text-gray-700">Varying standards, rushed work</p>
-              </div>
-
-              <div class="bg-accent rounded-lg p-6">
-                <div class="flex items-center mb-3">
-                  <svg
-                    class="w-6 h-6 text-primary mr-2"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                  </svg>
-                  <h3 class="text-lg font-semibold text-primary">
-                    Our Approach
-                  </h3>
-                </div>
-                <p class="text-primary/80">
-                  Consistent excellence, attention to detail
-                </p>
-              </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-4">
-              <div class="bg-primary/10 rounded-lg p-6">
-                <div class="flex items-center mb-3">
-                  <svg
-                    class="w-6 h-6 text-red-500 mr-2"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="15" y1="9" x2="9" y2="15"></line>
-                    <line x1="9" y1="9" x2="15" y2="15"></line>
-                  </svg>
-                  <h3 class="text-lg font-semibold text-primary">
-                    Other Contractors
-                  </h3>
-                </div>
-                <p class="text-gray-700">Hidden fees, unclear pricing</p>
-              </div>
-
-              <div class="bg-accent rounded-lg p-6">
-                <div class="flex items-center mb-3">
-                  <svg
-                    class="w-6 h-6 text-primary mr-2"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                  </svg>
-                  <h3 class="text-lg font-semibold text-primary">
-                    Our Approach
-                  </h3>
-                </div>
-                <p class="text-primary/80">
-                  Detailed quotes, no surprise charges
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-12 text-center">
-            <p class="text-xl text-primary font-semibold">
-              "Choose us the first time - over 800 satisfied Anchorage
-              homeowners can't be wrong!"
-            </p>
+            <!-- Schedule Service Online Button -->
+            <a
+              href="#scheduling"
+              class="px-8 py-4 bg-white hover:bg-gray-100 text-primary font-bold rounded-md text-center transition flex items-center justify-center text-lg"
+            >
+              <svg
+                class="w-6 h-6 mr-2"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Schedule Online
+            </a>
           </div>
         </div>
       </div>
@@ -661,15 +817,17 @@
       <div class="container mx-auto px-4">
         <div class="text-center mb-12">
           <h2 class="text-3xl md:text-4xl font-bold text-accent mb-4">
-            How Can We Help Your Anchorage Home Today?
+            Created to Serve:
           </h2>
           <p class="text-xl text-gray-200 max-w-3xl mx-auto">
-            Browse through our comprehensive service offerings.
+            Intentionally pursuing our calling through serving your property
+            needs with excellence.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Service 1 -->
+        <!-- Services Grid - 4 Services in a Row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Emergency Services -->
           <div class="group">
             <div
               class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer aspect-[4/3]"
@@ -677,24 +835,24 @@
               <div
                 class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                 style="
-                  background-image: url('https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68152dd55d4a838030067434.webp');
+                  background-image: url('https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af7d97df52dbc67c83e.webp');
                 "
               ></div>
               <div
                 class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
               ></div>
               <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                <h3 class="text-xl font-bold">Kitchen & Bathroom Remodels</h3>
-                <p class="text-sm text-accent">Complete Remodel</p>
+                <h3 class="text-xl font-bold">Emergency Services</h3>
+                <p class="text-sm text-accent">24/7 Availability</p>
               </div>
             </div>
             <p class="mt-2 text-gray-200 text-sm">
-              Update your most essential spaces with modern fixtures, layouts,
-              and finishes.
+              Round-the-clock emergency response for urgent plumbing
+              and structural issues.
             </p>
           </div>
 
-          <!-- Service 2 -->
+          <!-- Maintenance -->
           <div class="group">
             <div
               class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer aspect-[4/3]"
@@ -702,24 +860,24 @@
               <div
                 class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                 style="
-                  background-image: url('https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/6815325f88cf5cec7bf6496e.webp');
+                  background-image: url('https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af790fc434dcdb829c8.webp');
                 "
               ></div>
               <div
                 class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
               ></div>
               <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                <h3 class="text-xl font-bold">Deck Repair & Builds</h3>
-                <p class="text-sm text-accent">Outdoor Living</p>
+                <h3 class="text-xl font-bold">Maintenance</h3>
+                <p class="text-sm text-accent">Preventive Care</p>
               </div>
             </div>
             <p class="mt-2 text-gray-200 text-sm">
-              Enjoy the Alaskan outdoors on a safe, beautiful deck designed to
-              withstand the elements.
+              Regular maintenance services to keep your property in optimal
+              condition year-round.
             </p>
           </div>
 
-          <!-- Service 3 -->
+          <!-- Remodeling -->
           <div class="group">
             <div
               class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer aspect-[4/3]"
@@ -727,24 +885,24 @@
               <div
                 class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                 style="
-                  background-image: url('https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68152dd5cf32b03f4fc2813a.webp');
+                  background-image: url('https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af7bd2be4faeaaf3744.webp');
                 "
               ></div>
               <div
                 class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
               ></div>
               <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                <h3 class="text-xl font-bold">Plumbing & Electrical</h3>
-                <p class="text-sm text-accent">Home Systems</p>
+                <h3 class="text-xl font-bold">Remodeling</h3>
+                <p class="text-sm text-accent">Complete Renovations</p>
               </div>
             </div>
             <p class="mt-2 text-gray-200 text-sm">
-              Fix leaks, install fixtures, and handle all your wiring and
-              electrical needs safely.
+              Transform your spaces with comprehensive remodeling services for
+              kitchens, bathrooms, and more.
             </p>
           </div>
 
-          <!-- Service 4 -->
+          <!-- Cleaning -->
           <div class="group">
             <div
               class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer aspect-[4/3]"
@@ -752,70 +910,20 @@
               <div
                 class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                 style="
-                  background-image: url('https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/6815329a5d4a832a880679fd.webp');
+                  background-image: url('https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af790fc435f1db829c5.webp');
                 "
               ></div>
               <div
                 class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
               ></div>
               <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                <h3 class="text-xl font-bold">Drywall & Painting</h3>
-                <p class="text-sm text-accent">Interior Finishing</p>
+                <h3 class="text-xl font-bold">Cleaning</h3>
+                <p class="text-sm text-accent">Professional Cleaning</p>
               </div>
             </div>
             <p class="mt-2 text-gray-200 text-sm">
-              Expert finishing services to give your home a polished,
-              professional look.
-            </p>
-          </div>
-
-          <!-- Service 5 -->
-          <div class="group">
-            <div
-              class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer aspect-[4/3]"
-            >
-              <div
-                class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                style="
-                  background-image: url('https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/681468f201c78b6d86967b77.webp');
-                "
-              ></div>
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-              ></div>
-              <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                <h3 class="text-xl font-bold">Flooring Installation</h3>
-                <p class="text-sm text-accent">Floor Renovation</p>
-              </div>
-            </div>
-            <p class="mt-2 text-gray-200 text-sm">
-              Upgrade your floors with precision installation of hardwood,
-              laminate, tile, and more.
-            </p>
-          </div>
-
-          <!-- Service 6 -->
-          <div class="group">
-            <div
-              class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer aspect-[4/3]"
-            >
-              <div
-                class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                style="
-                  background-image: url('https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/681468f25d4a83484302f13c.webp');
-                "
-              ></div>
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-              ></div>
-              <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                <h3 class="text-xl font-bold">General Handyman</h3>
-                <p class="text-sm text-accent">Home Maintenance</p>
-              </div>
-            </div>
-            <p class="mt-2 text-gray-200 text-sm">
-              Conquer that growing list of home repairs and maintenance tasks
-              efficiently.
+              Thorough cleaning services to maintain your property's
+              appearance and hygiene standards.
             </p>
           </div>
         </div>
@@ -831,17 +939,269 @@
       </div>
     </section>
 
+    <!-- User Types Section -->
+    <section id="user-types" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4 md:px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+            Specialized Services for Your Specific Needs
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            We understand that different clients have different requirements.
+            That's why we offer tailored services for each of our client types.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Property Owners -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-grow">
+            <div
+              class="h-48 bg-cover bg-center"
+              style="
+                background-image: url('https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af76b97b2a314fdc20a.webp');
+              "
+            >
+              <div
+                class="h-full w-full bg-primary/50 flex items-center justify-center"
+              >
+                <h3 class="text-2xl font-bold text-white">Property Owners</h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Expert diagnosis of home issues</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Comprehensive home maintenance</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Quality remodeling and repairs</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Skilled craftsmanship you can trust</span>
+                </li>
+              </ul>
+              <p class="text-gray-600 mb-6">
+                We're passionate about diagnosing issues, maintaining homes, and
+                delivering quality remodeling and repairs. Our skilled team
+                enjoys the work and takes pride in every project.
+              </p>
+            </div>
+          </div>
+
+          <!-- Real Estate Agents -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-grow">
+            <div
+              class="h-48 bg-cover bg-center"
+              style="
+                background-image: url('https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af742a253c12ce1cdb6.webp');
+              "
+            >
+              <div
+                class="h-full w-full bg-primary/50 flex items-center justify-center"
+              >
+                <h3 class="text-2xl font-bold text-white">
+                  Real Estate Agents
+                </h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Quick handling of inspection items</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Prompt response to addenda requests</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Licensed, bonded & insured work</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Guaranteed tight deadlines</span>
+                </li>
+              </ul>
+              <p class="text-gray-600 mb-6">
+                We handle inspection items and addenda quickly with licensed,
+                bonded, and insured plumbing and structural work.
+                Our licensed plumber on staff ensures quality
+                work. We're expanding our plumbing services as part of bundled
+                packages.
+              </p>
+            </div>
+          </div>
+
+          <!-- Property Managers -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-grow">
+            <div
+              class="h-48 bg-cover bg-center"
+              style="
+                background-image: url('https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af74a13d59a2324f42a.webp');
+              "
+            >
+              <div
+                class="h-full w-full bg-primary/50 flex items-center justify-center"
+              >
+                <h3 class="text-2xl font-bold text-white">Property Managers</h3>
+              </div>
+            </div>
+            <div class="p-6">
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Efficient make-ready services</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Responsive tenant repair services</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Expert coordination of services</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Complete repairs from foundation to attic</span>
+                </li>
+              </ul>
+              <p class="text-gray-600 mb-6">
+                We provide make-readies, tenant repairs, and expert coordination
+                for all your rental property needs. Our comprehensive services
+                cover everything from foundation to attic.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Trust Section -->
     <section id="trust" class="py-20 bg-gray-50">
       <div class="container mx-auto px-4 md:px-6">
         <div class="text-center max-w-3xl mx-auto mb-16">
           <h2 class="text-3xl md:text-4xl font-bold mb-6">
-            The Contractor Anchorage Realtors & Homeowners Trust
+            Trusted by Property Owners, Realtors & Property Managers
           </h2>
           <p class="text-gray-600 text-lg">
             Our reputation across hundreds of projects in Alaska speaks for
-            itself. We pride ourselves on reliability, quality, and doing the
-            job right the first time.
+            itself. We're intentionally pursuing our calling through serving you
+            with reliability, quality, and excellence.
           </p>
         </div>
 
@@ -990,164 +1350,142 @@
             </p>
           </div>
         </div>
-
-        <div class="bg-primary rounded-xl shadow-xl overflow-hidden">
-          <div class="p-8 md:p-12">
-            <div class="max-w-4xl mx-auto text-center text-white">
-              <h3 class="text-2xl md:text-3xl font-bold mb-6">
-                What Sets Us Apart
-              </h3>
-
-              <div
-                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8"
-              >
-                <div class="flex flex-col items-center">
-                  <div
-                    class="bg-accent rounded-full w-16 h-16 flex items-center justify-center text-primary mb-4"
-                  >
-                    <svg
-                      class="w-8 h-8"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
-                      ></path>
-                      <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                  </div>
-                  <h4 class="text-lg font-semibold mb-2">Trust & Integrity</h4>
-                  <p class="text-gray-200">
-                    Honest pricing and ethical practices on every project
-                  </p>
-                </div>
-
-                <div class="flex flex-col items-center">
-                  <div
-                    class="bg-accent rounded-full w-16 h-16 flex items-center justify-center text-primary mb-4"
-                  >
-                    <svg
-                      class="w-8 h-8"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <rect
-                        x="3"
-                        y="4"
-                        width="18"
-                        height="18"
-                        rx="2"
-                        ry="2"
-                      ></rect>
-                      <line x1="16" y1="2" x2="16" y2="6"></line>
-                      <line x1="8" y1="2" x2="8" y2="6"></line>
-                      <line x1="3" y1="10" x2="21" y2="10"></line>
-                    </svg>
-                  </div>
-                  <h4 class="text-lg font-semibold mb-2">Reliability</h4>
-                  <p class="text-gray-200">
-                    We show up on time, every time, and meet our deadlines
-                  </p>
-                </div>
-
-                <div class="flex flex-col items-center">
-                  <div
-                    class="bg-accent rounded-full w-16 h-16 flex items-center justify-center text-primary mb-4"
-                  >
-                    <svg
-                      class="w-8 h-8"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                      ></path>
-                    </svg>
-                  </div>
-                  <h4 class="text-lg font-semibold mb-2">Communication</h4>
-                  <p class="text-gray-200">
-                    Clear updates throughout your project, no surprises
-                  </p>
-                </div>
-
-                <div class="flex flex-col items-center">
-                  <div
-                    class="bg-accent rounded-full w-16 h-16 flex items-center justify-center text-primary mb-4"
-                  >
-                    <svg
-                      class="w-8 h-8"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <polygon
-                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                      ></polygon>
-                    </svg>
-                  </div>
-                  <h4 class="text-lg font-semibold mb-2">Quality</h4>
-                  <p class="text-gray-200">
-                    Top-notch craftsmanship and attention to detail
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- Emergency Section -->
-    <section class="py-16 bg-primary text-white">
+    <section id="emergency" class="py-20 bg-primary text-white">
       <div class="container mx-auto px-4 md:px-6">
-        <div
-          class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between"
-        >
-          <div class="mb-8 md:mb-0 text-center md:text-left">
-            <div class="flex items-center justify-center md:justify-start mb-4">
-              <svg
-                class="w-8 h-8 mr-3"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-              <h2 class="text-2xl md:text-3xl font-bold">Have an Emergency?</h2>
-            </div>
-            <p class="text-xl mb-2">24/7 on call service available</p>
-            <p class="text-lg opacity-90">
-              Trust decades of experience to handle your emergency repairs
-            </p>
-          </div>
+        <div class="text-center mb-10">
+          <h2 class="text-3xl md:text-5xl font-bold mb-4">
+            <span class="text-accent">24/7</span> Emergency Services
+          </h2>
+        </div>
 
-          <div class="flex-shrink-0">
-            <a
-              href="tel:9076009900"
-              class="flex items-center bg-accent text-primary hover:bg-accent/90 px-6 py-4 rounded-lg text-xl font-semibold transition transform hover:scale-105"
+        <!-- Emergency Services -->
+        <div class="mb-12">
+          <div class="flex flex-col gap-12 items-center">
+            <!-- Emergency Services Section -->
+            <div
+              class="bg-primary text-white rounded-xl p-8 shadow-lg w-full border border-white/20"
             >
-              <svg
-                class="w-6 h-6 mr-3"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
+              <div class="flex items-center mb-6">
+                <div class="bg-accent rounded-full p-3 mr-4">
+                  <svg
+                    class="w-8 h-8 text-primary"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-bold">Have an Emergency?</h3>
+              </div>
+
+              <ul class="space-y-4 mb-8">
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Plumbing emergencies (leaks, floods, no water)</span>
+                </li>
+
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Structural damage (storm, accident, fence repair)</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-accent mt-1 mr-3 flex-shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>Heating/cooling failures in extreme weather</span>
+                </li>
+              </ul>
+
+              <div class="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="tel:9076009900"
+                  class="flex items-center justify-center bg-accent text-primary hover:bg-accent/90 px-6 py-4 rounded-lg text-xl font-semibold transition transform hover:scale-105 whitespace-nowrap"
+                >
+                  <svg
+                    class="w-6 h-6 mr-2"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                    ></path>
+                  </svg>
+                  Call: (907) 600-9900
+                </a>
+                <a
+                  href="#contact"
+                  class="flex items-center justify-center bg-white/20 hover:bg-white/30 px-6 py-4 rounded-lg text-xl font-semibold transition"
+                >
+                  Request Emergency Service
+                </a>
+              </div>
+            </div>
+
+            <!-- Scheduling Section -->
+            <div
+              id="scheduling"
+              class="bg-white rounded-xl shadow-xl overflow-hidden w-full"
+            >
+              <div
+                class="p-6 bg-accent text-primary font-bold text-xl text-center"
               >
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                ></path>
-              </svg>
-              Call: (907) 600-9900
-            </a>
+                Schedule Your Service
+              </div>
+              <div
+                class="booking-container"
+                style="height: 800px; overflow: hidden"
+              >
+                <iframe
+                  src="https://api.leadconnectorhq.com/widget/booking/NuS5BqNCvLPpRUBBllGn"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                    overflow: hidden;
+                  "
+                  scrolling="no"
+                  id="NuS5BqNCvLPpRUBBllGn_1747152639241"
+                ></iframe>
+                <script
+                  src="https://link.msgsndr.com/js/form_embed.js"
+                  type="text/javascript"
+                ></script>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1159,11 +1497,12 @@
         <div class="max-w-5xl mx-auto">
           <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Start Your Anchorage Project Without the Wait?
+              Let Us Serve Your Property Needs Today
             </h2>
             <p class="text-gray-600 text-lg max-w-3xl mx-auto">
-              Why put off those needed repairs or your dream remodel any longer?
-              Get prompt, professional service right here in Anchorage.
+              Whether you're a property owner, real estate agent, or property
+              manager, we're here to serve you with excellence, humility, and
+              professionalism.
             </p>
           </div>
 
@@ -1285,63 +1624,79 @@
             </div>
 
             <div
-              class="bg-white rounded-lg shadow-md p-8 border border-gray-200"
+              class="bg-white rounded-lg shadow-md p-4 pt-2 pb-8 border border-gray-200"
             >
-              <h3 class="text-2xl font-bold mb-6 text-primary">
+              <h3 class="text-2xl font-bold mb-2 text-primary">
                 Request Your Free Estimate
               </h3>
-              <form class="space-y-4">
-                <div>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name*"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                    required
-                  />
-                </div>
-                <div>
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone Number*"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                    required
-                  />
-                </div>
-                <div>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email Address*"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                    required
-                  />
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    name="address"
-                    placeholder="Anchorage Address/Area"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                  />
-                </div>
-                <div>
-                  <textarea
-                    name="projectDescription"
-                    placeholder="Project Description*"
-                    rows="4"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-primary focus:ring-1 focus:ring-primary"
-                    required
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-md transition"
+              <div
+                class="form-container relative"
+                style="height: 800px; border-radius: 6px; overflow: visible"
+              >
+                <iframe
+                  src="https://api.leadconnectorhq.com/widget/form/wZJleRMUcriSmn86ySdF"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                    border-radius: 6px;
+                    overflow: visible;
+                  "
+                  id="inline-wZJleRMUcriSmn86ySdF"
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Estimate Form"
+                  data-height="800"
+                  data-layout-iframe-id="inline-wZJleRMUcriSmn86ySdF"
+                  data-form-id="wZJleRMUcriSmn86ySdF"
+                  title="Estimate Form"
                 >
-                  Submit Request
-                </button>
-              </form>
+                </iframe>
+
+                <!-- Overlay to prevent form submission without consent -->
+                <div id="form-overlay" class="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center hidden">
+                  <div class="text-center p-6 bg-white rounded-lg shadow-lg border border-red-200">
+                    <div class="text-red-600 mb-2">
+                      <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.268 19.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Consent Required</h3>
+                    <p class="text-gray-600 mb-4">Please check the marketing consent checkbox below to submit your request.</p>
+                    <button onclick="document.getElementById('form-overlay').classList.add('hidden')" class="bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition">
+                      OK
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Marketing Consent Checkbox - Required -->
+              <div class="consent-checkbox mt-3 mb-4 p-4 bg-gray-50 border border-gray-200 rounded-lg">
+                <label class="flex items-start cursor-pointer">
+                  <input
+                    type="checkbox"
+                    class="mt-1 mr-3 w-4 h-4"
+                    id="marketingConsent"
+                    required
+                  />
+                  <span class="text-sm text-gray-700 leading-relaxed">
+                    <strong class="text-red-600">*Required:</strong> I agree to receive marketing messaging from Essential
+                    Property Services at the phone number provided above. I
+                    understand I will receive 2 messages a month, data rates may
+                    apply, reply STOP to opt out. This data will be mapped to
+                    HighLevel.
+                  </span>
+                </label>
+                <div id="consent-error" class="text-red-600 text-sm mt-2 hidden">
+                  Please check this box to submit your request.
+                </div>
+              </div>
+              <script src="https://link.msgsndr.com/js/form_embed.js"></script>
             </div>
           </div>
         </div>
@@ -1356,11 +1711,11 @@
             <img
               src="https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/681439e6dde4a49484f17fe1.webp"
               alt="Essential Property Services Logo"
-              class="h-16 mb-4"
+              class="h-16 mb-4 brightness-0 invert"
             />
             <p class="text-gray-300 mb-4">
-              Created to serve with excellence, through humility and
-              professionalism.
+              Creating to serve with excellence, intentionally pursuing our
+              calling through serving you with humility and professionalism.
             </p>
             <div class="flex space-x-4">
               <a href="#" class="text-accent hover:text-accent/80 transition">
@@ -1473,9 +1828,11 @@
             Essential Property Services LLC. All rights reserved.
           </p>
           <p class="mt-2">
-            <a href="#" class="hover:text-accent transition">Privacy Policy</a>
-            {' | '}
-            <a href="#" class="hover:text-accent transition"
+            <a href="privacy.html" class="hover:text-accent transition"
+              >Privacy Policy</a
+            >
+            |
+            <a href="terms.html" class="hover:text-accent transition"
               >Terms of Service</a
             >
           </p>

@@ -104,183 +104,191 @@
         pointer-events: none;
       }
     </style>
-    <script>
-      !(function (Gleap, t, i) {
-        if (!(Gleap = window.Gleap = window.Gleap || []).invoked) {
-          for (
-            window.GleapActions = [],
-              Gleap.invoked = !0,
-              Gleap.methods = [
-                "identify",
-                "setEnvironment",
-                "setTags",
-                "attachCustomData",
-                "setCustomData",
-                "removeCustomData",
-                "clearCustomData",
-                "registerCustomAction",
-                "trackEvent",
-                "setUseCookies",
-                "log",
-                "preFillForm",
-                "showSurvey",
-                "sendSilentCrashReport",
-                "startFeedbackFlow",
-                "startBot",
-                "setAppBuildNumber",
-                "setAppVersionCode",
-                "setApiUrl",
-                "setFrameUrl",
-                "isOpened",
-                "open",
-                "close",
-                "on",
-                "setLanguage",
-                "setOfflineMode",
-                "startClassicForm",
-                "initialize",
-                "disableConsoleLogOverwrite",
-                "logEvent",
-                "hide",
-                "enableShortcuts",
-                "showFeedbackButton",
-                "destroy",
-                "getIdentity",
-                "isUserIdentified",
-                "clearIdentity",
-                "openConversations",
-                "openConversation",
-                "openHelpCenterCollection",
-                "openHelpCenterArticle",
-                "openHelpCenter",
-                "searchHelpCenter",
-                "openNewsArticle",
-                "openChecklists",
-                "startChecklist",
-                "openNews",
-                "openFeatureRequests",
-                "isLiveMode",
-              ],
-              Gleap.f = function (e) {
-                return function () {
-                  var t = Array.prototype.slice.call(arguments);
-                  window.GleapActions.push({ e: e, a: t });
-                };
-              },
-              t = 0;
-            t < Gleap.methods.length;
-            t++
-          )
-            Gleap[(i = Gleap.methods[t])] = Gleap.f(i);
-          (Gleap.load = function () {
-            var t = document.getElementsByTagName("head")[0],
-              i = document.createElement("script");
-            (i.type = "text/javascript"),
-              (i.async = !0),
-              (i.src = "https://sdk.gleap.io/latest/index.js"),
-              t.appendChild(i);
-          }),
-            Gleap.load(),
-            Gleap.initialize("AWgSKIC1b9ZgFMyt29I0VWOUUYxQSfJo");
-        }
-      })();
-    </script>
+
   </head>
   <body class="font-sans text-gray-800">
     <!-- Header -->
     <header
-      class="fixed w-full z-50 transition-all duration-300 py-4"
       id="header"
+      class="fixed w-full z-50 transition-all duration-300 py-6"
     >
       <div class="container mx-auto px-4 md:px-6">
-        <div class="flex justify-between items-center">
-          <div class="flex items-center">
-            <a href="index.html">
-              <img
-                src="https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/681586cfdb0184d1a887b9de.svg"
-                alt="Essential Property Services Logo"
-                class="h-12 md:h-16"
-              />
-            </a>
-          </div>
-
-          <div class="hidden md:flex items-center space-x-8">
-            <nav>
-              <ul class="flex space-x-6">
-                <li>
-                  <a
-                    href="services.html"
-                    class="nav-link font-medium hover:text-primary transition text-white"
-                    >Services</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="portfolio.html"
-                    class="nav-link font-medium hover:text-primary transition text-white"
-                    >Portfolio</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="team.html"
-                    class="nav-link font-medium hover:text-primary transition text-white"
-                    >Our Team</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="index.html#contact"
-                    class="nav-link font-medium hover:text-primary transition text-white"
-                    >Contact</a
-                  >
-                </li>
-              </ul>
-            </nav>
-
-            <a
-              href="tel:9076009900"
-              class="flex items-center bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md font-medium transition"
+        <!-- Mobile: Small floating menu on right -->
+        <div class="lg:hidden flex justify-end">
+          <div
+            id="navContainer"
+            class="backdrop-blur-sm rounded-2xl px-4 py-3 transition-all duration-300 w-auto"
+          >
+            <!-- Mobile Menu Button -->
+            <button
+              id="mobileMenuBtn"
+              class="text-white"
+              onclick="toggleMobileMenu()"
             >
               <svg
-                class="w-[18px] h-[18px] mr-2"
+                class="w-7 h-7"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                />
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
               </svg>
-              (907) 600-9900
-            </a>
+            </button>
           </div>
+        </div>
 
-          <button class="md:hidden text-primary" onclick="toggleMobileMenu()">
-            <svg
-              class="w-7 h-7"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
+        <!-- Desktop: Full width navigation -->
+        <div
+          id="navContainerDesktop"
+          class="hidden lg:block backdrop-blur-sm rounded-2xl px-6 py-4 transition-all duration-300"
+        >
+          <div class="flex justify-center items-center">
+            <!-- Left Navigation -->
+            <div class="flex items-center space-x-8 mr-auto">
+              <nav>
+                <ul class="flex space-x-8">
+                  <li>
+                    <a
+                      href="index.html"
+                      class="nav-link hover:text-accent transition text-white"
+                      title="Home"
+                    >
+                      <svg
+                        class="w-6 h-6"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                        ></path>
+                        <polyline points="9,22 9,12 15,12 15,22"></polyline>
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="services.html"
+                      class="nav-link font-bold hover:text-accent transition text-white text-lg"
+                      >Services</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="portfolio.html"
+                      class="nav-link font-bold hover:text-accent transition text-white text-lg"
+                      >Portfolio</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="team.html"
+                      class="nav-link font-bold hover:text-accent transition text-white text-lg"
+                      >Our Team</a
+                    >
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <!-- Right Navigation -->
+            <div class="flex items-center space-x-4 ml-auto">
+              <!-- Emergency Call Button -->
+              <a
+                href="tel:9076009900"
+                class="flex items-center bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-md font-bold transition text-sm"
+              >
+                <svg
+                  class="w-[18px] h-[18px] mr-2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+                Emergency 24/7
+              </a>
+
+              <!-- Maintenance Button -->
+              <a
+                href="index.html#contact"
+                class="nav-link font-bold hover:bg-white/90 transition bg-white text-primary text-sm px-4 py-3 rounded-md"
+                >Maintenance</a
+              >
+
+              <!-- Estimate Button -->
+              <a
+                href="index.html#scheduling"
+                class="flex items-center bg-accent hover:bg-accent/90 text-primary px-4 py-3 rounded-md font-bold transition text-sm"
+              >
+                <svg
+                  class="w-[18px] h-[18px] mr-2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Estimate
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Mobile menu -->
-      <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg">
-        <nav class="container mx-auto px-4 py-4">
+      <div
+        id="mobileMenu"
+        class="hidden lg:hidden bg-white/95 backdrop-blur-sm shadow-lg fixed top-0 left-0 right-0 z-50 mt-20 max-h-[calc(100vh-5rem)] overflow-y-auto rounded-b-2xl mx-4"
+      >
+        <nav class="px-6 py-6">
           <ul class="space-y-4">
             <li>
               <a
+                href="index.html"
+                class="flex items-center py-3 text-gray-800 font-medium hover:text-primary text-lg"
+                onclick="closeMobileMenu()"
+              >
+                <svg
+                  class="w-5 h-5 mr-3"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                  ></path>
+                  <polyline points="9,22 9,12 15,12 15,22"></polyline>
+                </svg>
+                Home
+              </a>
+            </li>
+            <li>
+              <a
                 href="services.html"
-                class="block py-2 text-gray-800 font-medium hover:text-primary"
+                class="block py-3 text-gray-800 font-medium hover:text-primary text-lg"
                 onclick="closeMobileMenu()"
               >
                 Services
@@ -289,7 +297,7 @@
             <li>
               <a
                 href="portfolio.html"
-                class="block py-2 text-gray-800 font-medium hover:text-primary"
+                class="block py-3 text-gray-800 font-medium hover:text-primary text-lg"
                 onclick="closeMobileMenu()"
               >
                 Portfolio
@@ -298,7 +306,7 @@
             <li>
               <a
                 href="team.html"
-                class="block py-2 text-gray-800 font-medium hover:text-primary"
+                class="block py-3 text-gray-800 font-medium hover:text-primary text-lg"
                 onclick="closeMobileMenu()"
               >
                 Our Team
@@ -307,16 +315,17 @@
             <li>
               <a
                 href="index.html#contact"
-                class="block py-2 text-gray-800 font-medium hover:text-primary"
+                class="block py-3 text-gray-800 font-medium hover:text-primary text-lg"
                 onclick="closeMobileMenu()"
               >
-                Contact
+                Maintenance
               </a>
             </li>
-            <li>
+            <!-- Emergency Call Button -->
+            <li class="pt-4">
               <a
                 href="tel:9076009900"
-                class="flex items-center w-full bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-md font-medium justify-center transition"
+                class="flex items-center w-full bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-md font-bold justify-center transition"
                 onclick="closeMobileMenu()"
               >
                 <svg
@@ -325,12 +334,38 @@
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 >
                   <path
                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
                   />
                 </svg>
-                (907) 600-9900
+                Emergency 24/7
+              </a>
+            </li>
+            <!-- Estimate Button -->
+            <li>
+              <a
+                href="index.html#scheduling"
+                class="flex items-center w-full bg-accent hover:bg-accent/90 text-primary px-4 py-3 rounded-md font-bold justify-center transition mt-2"
+                onclick="closeMobileMenu()"
+              >
+                <svg
+                  class="w-[18px] h-[18px] mr-2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Get Estimate
               </a>
             </li>
           </ul>
@@ -500,31 +535,103 @@
     </div>
 
     <script>
-      // Header scroll effect
+      // Header scroll effect with transparent/white background transition
       window.addEventListener("scroll", () => {
         const header = document.getElementById("header");
+        const navContainer = document.getElementById("navContainer");
+        const navContainerDesktop = document.getElementById(
+          "navContainerDesktop"
+        );
         const navLinks = document.querySelectorAll(".nav-link");
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
 
         if (window.scrollY > 20) {
-          header.classList.remove("py-4");
-          header.classList.add("bg-white", "shadow-md", "py-2");
-          navLinks.forEach((link) => {
-            link.classList.remove("text-white");
-            link.classList.add("text-gray-800");
-          });
-        } else {
+          // Scrolled state - white background
+          header.classList.remove("py-6");
           header.classList.add("py-4");
-          header.classList.remove("bg-white", "shadow-md", "py-2");
+
+          // Apply to both mobile and desktop containers
+          if (navContainer) {
+            navContainer.classList.add("bg-white/95", "shadow-lg");
+          }
+          if (navContainerDesktop) {
+            navContainerDesktop.classList.add("bg-white/95", "shadow-lg");
+          }
+
+          // Change text colors to dark (except maintenance button which stays white bg)
           navLinks.forEach((link) => {
-            link.classList.add("text-white");
-            link.classList.remove("text-gray-800");
+            if (link.textContent.trim() === "Maintenance") {
+              // Maintenance button stays white with purple text
+              link.classList.remove(
+                "text-white",
+                "hover:text-accent",
+                "bg-white",
+                "hover:bg-white/90"
+              );
+              link.classList.add(
+                "text-primary",
+                "bg-gray-100",
+                "hover:bg-gray-200"
+              );
+            } else {
+              link.classList.remove("text-white", "hover:text-accent");
+              link.classList.add("text-gray-800", "hover:text-primary");
+            }
           });
+
+          if (mobileMenuBtn) {
+            mobileMenuBtn.classList.remove("text-white");
+            mobileMenuBtn.classList.add("text-primary");
+          }
+        } else {
+          // Top of page - transparent background
+          header.classList.add("py-6");
+          header.classList.remove("py-4");
+
+          // Remove from both mobile and desktop containers
+          if (navContainer) {
+            navContainer.classList.remove("bg-white/95", "shadow-lg");
+          }
+          if (navContainerDesktop) {
+            navContainerDesktop.classList.remove("bg-white/95", "shadow-lg");
+          }
+
+          // Change text colors to white
+          navLinks.forEach((link) => {
+            if (link.textContent.trim() === "Maintenance") {
+              // Maintenance button is white with purple text
+              link.classList.remove(
+                "text-primary",
+                "bg-gray-100",
+                "hover:bg-gray-200"
+              );
+              link.classList.add(
+                "text-primary",
+                "bg-white",
+                "hover:bg-white/90"
+              );
+            } else {
+              link.classList.remove("text-gray-800", "hover:text-primary");
+              link.classList.add("text-white", "hover:text-accent");
+            }
+          });
+
+          if (mobileMenuBtn) {
+            mobileMenuBtn.classList.remove("text-primary");
+            mobileMenuBtn.classList.add("text-white");
+          }
         }
       });
 
       // Mobile menu toggle
       function toggleMobileMenu() {
         const mobileMenu = document.getElementById("mobileMenu");
+        const header = document.getElementById("header");
+
+        // Adjust mobile menu position based on header height
+        const headerHeight = header.offsetHeight;
+        mobileMenu.style.marginTop = headerHeight + "px";
+
         mobileMenu.classList.toggle("hidden");
       }
 
@@ -537,143 +644,177 @@
       const projects = [
         {
           id: 1,
-          title: "Modern Kitchen Transformation",
+          title: "Kitchen Transformation",
           description:
-            "Complete kitchen remodel with custom cabinets, quartz countertops, and new appliances",
+            "Complete kitchen remodel with custom cabinets, modern appliances, and beautiful finishes",
           type: "Kitchen Remodel",
           beforeImage:
-            "https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68159806db01842adf87ca4f.webp",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af7bd2be4faeaaf3744.webp",
           afterImage:
-            "https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68159806ea8101223fed35dc.webp",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af74a13d584d124f429.webp",
           testimonial: {
-            text: "They transformed our outdated kitchen into a modern masterpiece. The attention to detail was incredible!",
-            author: "Sarah M.",
+            text: "Scott and his crew are awesome. Professional in every aspect. They completed a kitchen remodel, walk-in shower, flooring, and smaller jobs for a pending sale on our home. Thank you Scott, and thank you to your outstanding crew.",
+            author: "Cheryl Teal",
             rating: 5,
           },
         },
         {
           id: 2,
-          title: "Gorgeous Bathroom Renovation",
+          title: "Luxury Shower Renovation",
           description:
-            "Luxury bathroom remodel with heated floors, custom tile work, and modern fixtures",
+            "Custom tiled walk-in shower with modern fixtures and professional installation",
           type: "Bathroom Remodel",
           beforeImage:
-            "https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/6815a2f00013197527049d0b.webp",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af7681f2d74071bd958.webp",
           afterImage:
-            "https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/6815a2f0db0184080087d5c1.webp",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af74a13d500e124f427.webp",
           testimonial: {
-            text: "Our bathroom feels like a high-end spa now. The heated floors are amazing!",
-            author: "Michael & Lisa K.",
+            text: "I have used Scott Cook on several projects now and APPRECIATE his responsiveness on our construction and remodel request(s). Scott also took care of a warranty item in a snap. I just referred a client this morning to Scott - he is that good.",
+            author: "Brian Broderick",
             rating: 5,
           },
         },
         {
           id: 3,
-          title: "Custom Deck Build",
+          title: "Flood Damage Restoration",
           description:
-            "New gorgeous deck with dark composite decking and cable railing",
-          type: "Outdoor Living",
+            "Complete flood remediation and flooring restoration with precision and care",
+          type: "Emergency Services",
           beforeImage:
-            "https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/6815a5ceea81010f18ed4746.webp",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af7d97df52dbc67c83e.webp",
           afterImage:
-            "https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/6815a5ceca200059e5301abc.webp",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af790fc435f1db829c5.webp",
           testimonial: {
-            text: "The new deck completely transformed our backyard. Perfect for entertaining!",
-            author: "David W.",
+            text: "After a devastating flood damaged my home, I was in desperate need of a reliable contractor who could bring my house back to life. They worked quickly without sacrificing quality, which was especially important given the urgency after the flood. They got the job done in three days so my live in Nanny could arrive to a finished room.",
+            author: "Jamie Tucker",
             rating: 5,
           },
         },
         {
           id: 4,
-          title: "Flooring Installation",
+          title: "Window Sill Repair & Restoration",
           description:
-            "Complete kitchen and hallway transformation with new flooring",
-          type: "Flooring Installation",
+            "Professional window sill repair and refinishing for improved functionality and appearance",
+          type: "Home Maintenance",
           beforeImage:
-            "https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68152dd5209d22cd672d22f3.webp",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af8681f2d348c1bd95e.webp",
           afterImage:
-            "https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68152dd55d4a83c03f067435.webp",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af76b97b26856fdc209.webp",
           testimonial: {
-            text: "The new floor is so much better than the old one. We're so grateful to have this finally fixed.",
-            author: "John Doe",
+            text: "Scott came and helped with the issue in my kitchen. He was able to schedule me quickly and came right away. I could tell he is an honest man, and he took care of the issue correctly. He spotted the problem and fixed it.",
+            author: "Amy Chase",
             rating: 5,
           },
         },
         {
           id: 5,
-          title: "Master Suite Addition",
-          description: "400 sq ft master suite addition with custom closets",
-          type: "Home Addition",
+          title: "Complete Home Remodel",
+          description:
+            "Full remodel including kitchen, bathrooms, lighting, plumbing, back deck, and flooring",
+          type: "Full Remodel",
           beforeImage:
-            "https://images.pexels.com/photos/1648768/pexels-photo-1648768.jpeg",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af742a25329ede1cdb5.webp",
           afterImage:
-            "https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af76b97b2a314fdc20a.webp",
           testimonial: {
-            text: "The new master suite exceeded our expectations. It's like having a luxury hotel room at home!",
-            author: "Emily R.",
+            text: "Scott and team were the absolute best to work with. I had a full remodel to do and they knocked it out of the park. Kitchen, bathrooms, lighting, plumbing, back deck, flooring, they do it all! I was always kept in the loop and they were always ready with suggestions and options!",
+            author: "KilkerJ",
             rating: 5,
           },
         },
         {
           id: 6,
-          title: "Complete Home Exterior",
-          description: "New siding, windows, and roof with modern color scheme",
-          type: "Exterior Renovation",
+          title: "Professional Painting Services",
+          description:
+            "Interior and exterior painting with attention to detail and quality finishes",
+          type: "Painting",
           beforeImage:
-            "https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af7681f2d6cfc1bd95b.webp",
           afterImage:
-            "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af7681f2d25641bd95c.webp",
           testimonial: {
-            text: "Our home's curb appeal has improved dramatically. The neighbors keep asking for your number!",
-            author: "Thomas & Mary B.",
+            text: "These guys did an awesome job with some flooring and trimming all over the house: both living rooms, bathrooms, all doors, kitchen, around stairs and stairwells. The house has some odd angles and round corners, and they took the extra time to cut the trim to make it look flush and seamless.",
+            author: "Jeremy Lussi",
             rating: 5,
           },
         },
         {
           id: 7,
-          title: "Open Concept Living",
+          title: "Retaining Wall Rebuild",
           description:
-            "Removed walls to create an open floor plan with modern finishes",
-          type: "Interior Renovation",
+            "Professional retaining wall reconstruction with proper drainage and structural integrity",
+          type: "Structural Work",
           beforeImage:
-            "https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/6815acfcea81016307ed4d64.webp",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af790fc43828ab829c6.webp",
           afterImage:
-            "https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/6815acfc1e3c1e5e4112e2d4.webp",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af742a253c12ce1cdb6.webp",
           testimonial: {
-            text: "The open concept transformation has made our home feel so much larger and brighter.",
-            author: "Amanda L.",
+            text: "From various projects like deck repairs to interior work, plumbing and electrical repairs, these guys always do a great job! It was amazing how that additional bracing secured the deck. The interior cable rail looks great.",
+            author: "Scott Chambers",
             rating: 5,
           },
         },
         {
           id: 8,
-          title: "Garage Conversion",
+          title: "Excavation & Site Preparation",
           description:
-            "Here's what a plain garage looks like when it's converted into a beautiful home gym",
-          type: "Space Conversion",
+            "Professional excavation services for foundation work and site preparation",
+          type: "Excavation",
           beforeImage:
-            "https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/6815ab1dea81010787ed4b82.webp",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af74a13d59a2324f42a.webp",
           afterImage:
-            "https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/6815ab1dea8101b542ed4b83.webp",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af790fc434dcdb829c8.webp",
           testimonial: {
-            text: "The garage conversion was brilliant. Now we have a perfect work-from-home setup!",
-            author: "Chris P.",
+            text: "We felt comfortable working with Scott from the start; he just seemed smart and competent and responsive. He diagnosed and fixed moisture damage in our basement. His communication was excellent--especially appreciated since we were out of state.",
+            author: "Brent Voorhees",
             rating: 5,
           },
         },
         {
           id: 9,
-          title: "Luxury Kitchen Remodel",
+          title: "Multi-Unit Property Repairs",
           description:
-            "High-end kitchen renovation with professional-grade appliances",
-          type: "Kitchen Remodel",
+            "Comprehensive repairs and maintenance for rental properties and multi-unit buildings",
+          type: "Property Management",
           beforeImage:
-            "https://images.pexels.com/photos/1643384/pexels-photo-1643384.jpeg",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68507af74a13d5acb824f428.webp",
           afterImage:
-            "https://images.pexels.com/photos/3214064/pexels-photo-3214064.jpeg",
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/68506368d97df57e336772da.webp",
           testimonial: {
-            text: "This kitchen is a chef's dream! The quality of work is outstanding.",
-            author: "Patricia M.",
+            text: "We were selling our 4plex and needed some work done per the inspection report that had a tight deadline. Our realtor suggested Scott and boy am I glad he did! He was able to meet us for a quote and then arranged his schedule to get the work done within our timeline.",
+            author: "Gina Wilmink",
+            rating: 5,
+          },
+        },
+        {
+          id: 10,
+          title: "Greenscreek Shower Renovation",
+          description:
+            "Complete shower transformation with modern fixtures and elegant tile work",
+          type: "Bathroom Remodel",
+          beforeImage:
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/689fc814bccb2970181273f7.webp",
+          afterImage:
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/689fc814bccb2955581273f9.webp",
+          testimonial: {
+            text: "The shower renovation exceeded our expectations. Beautiful craftsmanship and attention to detail!",
+            author: "Greenscreek Homeowner",
+            rating: 5,
+          },
+        },
+        {
+          id: 11,
+          title: "Barron Bathroom Shower Remodel",
+          description:
+            "Stunning bathroom shower renovation with modern design and premium finishes",
+          type: "Bathroom Remodel",
+          beforeImage:
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/689fc81495fd4a120cc5fc01.webp",
+          afterImage:
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/689fc814c103212a6fe3f62d.webp",
+          testimonial: {
+            text: "Our new shower is absolutely gorgeous! The team did an amazing job bringing our vision to life.",
+            author: "Barron Family",
             rating: 5,
           },
         },
