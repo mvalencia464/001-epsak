@@ -142,6 +142,47 @@ const projects = [
       rating: 5,
     },
   },
+  {
+    id: 10,
+    title: "Greenscreek Shower Renovation",
+    description:
+      "Complete shower transformation with modern fixtures and elegant tile work",
+    type: "Bathroom Remodel",
+    beforeImage:
+      "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/689fc814bccb2970181273f7.webp",
+    afterImage:
+      "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/689fc814bccb2955581273f9.webp",
+    testimonial: {
+      text: "The shower renovation exceeded our expectations. Beautiful craftsmanship and attention to detail!",
+      author: "Greenscreek Homeowner",
+      rating: 5,
+    },
+    progressImages: [
+      "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/689fc814c10321bcc5e3f62e.webp"
+    ],
+  },
+  {
+    id: 11,
+    title: "Barron Bathroom Shower Remodel",
+    description:
+      "Stunning bathroom shower renovation with modern design and premium finishes",
+    type: "Bathroom Remodel",
+    beforeImage:
+      "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/689fc81495fd4a120cc5fc01.webp",
+    afterImage:
+      "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/689fc814c103212a6fe3f62d.webp",
+    testimonial: {
+      text: "Our new shower is absolutely gorgeous! The team did an amazing job bringing our vision to life.",
+      author: "Barron Family",
+      rating: 5,
+    },
+    progressImages: [
+      "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/689fc814bccb291d601273f8.webp",
+      "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/689fc8147bb59e1296151e91.webp",
+      "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/689fc814bb58f5c0547c05ab.webp"
+    ],
+    inspirationImage: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/ZvYXEcu0DmkCtuv5cGcG/media/689fc814cc998f8c58c2c498.webp",
+  },
 ];
 
 // Instagram videos data
